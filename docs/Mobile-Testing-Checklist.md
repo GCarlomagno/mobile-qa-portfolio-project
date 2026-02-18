@@ -6,10 +6,10 @@ This checklist is used to validate mobile-specific behavior of the Android appli
 
 ## 1. Application Launch
 
-- [ ] App launches successfully from cold start
+- [*] App launches successfully from cold start
 - [ ] Splash/loading behavior is consistent
-- [ ] No crash on initial launch
-- [ ] UI renders completely on first load
+- [*] No crash on initial launch
+- [*] UI renders completely on first load
 
 ---
 
