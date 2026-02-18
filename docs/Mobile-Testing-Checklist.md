@@ -28,11 +28,12 @@ This checklist is used to validate mobile-specific behavior of the Android appli
 
 ## 3. Lifecycle Behavior
 
-- [ ] App resumes correctly after pressing Home
-- [ ] App state preserved after background → foreground
-- [ ] Screen rotation does not crash the app
-- [ ] Screen rotation preserves navigation state
-- [ ] Back stack behaves correctly after rotation
+- [x] App resumes correctly after pressing Home
+- [x] App state preserved after background → foreground
+- [x] Screen rotation does not crash the app
+- [x] Screen rotation preserves navigation state
+- [x] Back stack behaves correctly after rotation
+    - Validated in both portrait and landscape modes.
 
 ---
 
