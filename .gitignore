@@ -1,0 +1,11 @@
+# Android
+android-test-app/.gradle/
+android-test-app/.idea/
+android-test-app/.kotlin/
+android-test-app/build/
+android-test-app/local.properties
+android-test-app/*.iml
+
+# General
+.DS_Store
+Thumbs.db
