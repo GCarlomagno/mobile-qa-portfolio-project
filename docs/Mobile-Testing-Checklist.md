@@ -6,21 +6,23 @@ This checklist is used to validate mobile-specific behavior of the Android appli
 
 ## 1. Application Launch
 
-- [*] App launches successfully from cold start
+- [x] App launches successfully from cold start
 - [ ] Splash/loading behavior is consistent
-- [*] No crash on initial launch
-- [*] UI renders completely on first load
+    - Note: Application does not implement a dedicated splash or loading screen.
+- [x] No crash on initial launch
+- [x] UI renders completely on first load
 
 ---
 
 ## 2. Navigation & UI Interaction
 
-- [ ] Main screen loads correctly
-- [ ] Navigation to second screen works
-- [ ] Back navigation returns to main screen
+- [X] Main screen loads correctly
+- [X] Navigation to second screen works
+- [X] Back navigation returns to main screen
 - [ ] Rapid multiple clicks do not break navigation
-- [ ] Toast messages display correctly
-- [ ] UI elements are responsive
+    - Result: FAILED – Rapid tapping of the navigation button causes the application to display a blank screen while the process remains active. Manual app restart was required to recover.
+- [x] Toast messages display correctly
+- [x] UI elements are responsive
 
 ---
 
