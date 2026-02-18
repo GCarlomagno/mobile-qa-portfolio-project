@@ -1,7 +1,7 @@
 # Test Environment Documentation
 ## 1. Machine Information
 - Host machine: VMware Virtual Machine
-- CPU: Ryzen 7 5700U - 6 cores
+- CPU: Ryzen 7 5700U - 3 cores (6 logic Processors)
 - RAM: 10GB
 - Disk Allocation: 100Gb
 
@@ -23,11 +23,13 @@
         Cores: 4
         Registry: ide.experimental.ui=true
 
-## 4. Emulator Configuration
-- Devide Model: 
-- Android Version:
-- API Level:
-- RAM Allocation:
+## 4. Test Device Configuration
+- Devide Model: Redmi 12C
+- Manufactor: Xiaomi
+- Android Version: 14 UP1A.231005.007
+- Android Security Update: 2025-12-01
+- API Level: API 34
+- RAM Allocation: 3GB + 3GB
 
 ## 5. Application Under Test
 - App name: Booking.com
@@ -35,6 +37,9 @@
 - Installation Source: Google Play Store
 
 ## 6. Network Configuration
-- Connection Type: 
-- Test Date:
+- Device Internet Connection: Wi-Fi
+- USB Connection: Enabled (ADB debugging only)
+- Network Switching Tested: Pending
+- Airplane Mode Testing: Pending
+- Test Date: 2026-02-18
 
