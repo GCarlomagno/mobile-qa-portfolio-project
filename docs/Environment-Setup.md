@@ -12,10 +12,19 @@
 ## 3. Development Tools
 - Git Version: 2.53.0.windows.1
 - Visual Studio Code Version: 1.109.4
-- Android Studio Version: Android Emulator v.36.4.9
+- Android Studio Version: Android Studio Panda 1 | 2025.3.1 Patch 1
+        Build #AI-253.29346.138.2531.14876573, built on February 12, 2026
+        Runtime version: 21.0.9+-14649483-b1163.86 amd64
+        VM: OpenJDK 64-Bit Server VM by JetBrains s.r.o.
+        Toolkit: sun.awt.windows.WToolkit
+        Windows 11.0
+        GC: G1 Young Generation, G1 Concurrent GC, G1 Old Generation
+        Memory: 2048M
+        Cores: 4
+        Registry: ide.experimental.ui=true
 
 ## 4. Emulator Configuration
-- Devide Model:
+- Devide Model: 
 - Android Version:
 - API Level:
 - RAM Allocation:
