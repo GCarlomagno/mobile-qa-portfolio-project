@@ -3,7 +3,7 @@
 ## 1. Test Environment
 
 **Device:**
-Xiaomi Redmi Note 12 Pro+ 5G
+Xiaomi Redmi 12C
 
 **Android Version:**
 14 (UP1A.231005.007)
@@ -11,11 +11,11 @@ Xiaomi Redmi Note 12 Pro+ 5G
 **Android Security Update:**
 01 December 2025
 
-**MIUI Version:**
-2.0.12.0.UMOEUXM
+**API Level:**
+34
 
 **RAM:**
-8GB + 6GB extended memory
+3GB + 3GB extended memory
 
 ---
 
@@ -44,3 +44,12 @@ Test execution focused on:
 ## 5. Potential Defect Candidates
 
 (To be updated if any instability is identified)
+
+---
+
+## 6. Evidence Collection Policy
+
+Screenshot required for failed test cases.
+Screen recording required for intermittent issues.
+Logcat review required for crashes or UI instability.
+No evidence required for passed test cases unless abnormal behavior observed.
