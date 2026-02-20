@@ -1,47 +1,47 @@
-## BUG-01: Blank Screen After Rapid Navigation Tapping
+# BUG-01 – Blank White Screen After Rapid Navigation Cycles
 
-**ID:** BUG-01  
-**Title:** Application displays blank screen after rapid navigation interaction 
-**Severity:** High  
-**Priority:** High  
-**Status:** Open  
+## Summary
+Application displays a completely blank white screen after rapid repeated navigation between main and second screen.
 
-### Environment
-- Device: Redmi 12C
-- Android Version: 14 (API 34)
-- App Version: 1.0 (Debug Build)
-- Installation Method: ADB via Android Studio
+## Environment
+Device: Xiaomi Redmi 12C  
+Android Version: 14 (API 34)  
+Build Type: Debug  
 
-### Preconditions
-- Application installed and launched
-- User on main screen
+## Preconditions
+App is launched and device is in portrait mode.
 
-### Steps to Reproduce
-1. Open application
-2. Rapidly tap "Go to second screen" and "Go Back" buttons 10–15 times
-3. Repeat navigation cycle multiple times
-4. Observe screen behavior
+## Steps to Reproduce
+1. Tap "Go to second screen".
+2. Tap "Go Back".
+3. Repeat steps 1–2 rapidly approximately 10 times.
+4. Continue until UI disappears.
+Tested in both portrait and landscape modes.
+Issue reproduces at same rate in both orientations.
 
-### Expected Result
-Application should handle rapid user interaction gracefully.
-Navigation should remain functional and UI elements should remain visible.
+## Expected Result
+Navigation remains stable.
+Main or second screen remains visible.
+UI elements remain rendered.
 
-### Actual Result
-Screen becomes blank
-Navigation buttons disappear
-Application process remains active
-Pressing Back does not recover UI
-Pressing Home and reopening does not consistently recover UI
-Recovery inconsistent: Opening and interacting with larger apps (e.g., Gmail, Netflix) sometimes restores UI
-Opening small apps without interaction does not restore UI
-In some cases, full app restart required
+## Actual Result
+Screen becomes completely blank white.
+No buttons or text are visible.
+Application does not crash.
+No crash dialog appears.
 
-### Logcat Review
+## Recovery Behavior
+- First occurrence: pressing device back button restores UI.
+- Subsequent occurrences: device back no longer restores UI.
+- Rotating the device always restores UI.
+- Lock/unlock does not restore UI.
+- App switching sometimes restores UI.
 
-No FATAL EXCEPTION detected
-No ANR detected
-No critical exception logged during reproduction
+## Reproducibility
+Occurs consistently under rapid navigation stress.
 
-### Evidence
-- evidence/screenshots/05-rapid-click-crash.png
-- evidence/videos/bug01-rapid-navigation.mp4
+## Severity
+Major – Core navigation becomes unusable and UI disappears.
+
+## Technical Observation
+Rotation restores UI, suggesting navigation state corruption or composition invalidation rather than application crash.
