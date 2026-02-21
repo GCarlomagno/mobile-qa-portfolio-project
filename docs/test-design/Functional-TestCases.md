@@ -4,90 +4,102 @@ This document contains structured functional test cases for the Android applicat
 
 ---
 
-### TC-01 – Verify application launches successfully
+### TC-FUN-01 – Verify application launches successfully
 
-**Precondition:**
-App is installed on device.
+**Priority:** High  
 
-**Steps:**
-1. Ensure the app is not running.
+**Precondition:**  
+Application is installed on the device.
+
+**Steps:**  
+1. Ensure the application is not running.  
 2. Launch the application.
 
-**Expected Result:**
-Main screen is displayed.
-Text "Hello GCarlomagno" is visible.
-No crash occurs.
+**Expected Result:**  
+- Main screen is displayed.  
+- Greeting text is visible.  
+- No crash occurs.
 
 ---
 
-### TC-02 – Verify navigation to second screen
+### TC-FUN-02 – Verify navigation to second screen
 
-**Precondition:**
-App is launched and user is on main screen.
+**Priority:** High  
 
-**Steps:**
+**Precondition:**  
+Application is launched and user is on the main screen.
+
+**Steps:**  
 1. Tap the button labeled "Go to second screen".
 
-**Expected Result:**
-Toast message "Going to second screen" appears briefly.
-Second screen is displayed.
-Text "This is the second screen!" is visible.
+**Expected Result:**  
+- Toast message appears briefly.  
+- Second screen is displayed.  
+- Second screen text is visible.
 
 ---
 
-### TC-03 – Verify back navigation using button
+### TC-FUN-03 – Verify back navigation using in-app button
 
-**Precondition:**
-User is on second screen.
+**Priority:** High  
 
-**Steps:**
+**Precondition:**  
+User is on the second screen.
+
+**Steps:**  
 1. Tap the button labeled "Go Back".
 
-**Expected Result:**
-User returns to main screen.
-Text "Hello GCarlomagno" is visible.
+**Expected Result:**  
+- User returns to the main screen.  
+- Main screen greeting text is visible.
 
 ---
 
-### TC-04 – Verify device back button navigation
+### TC-FUN-04 – Verify device back button navigation
 
-**Precondition:**
-User is on second screen.
+**Priority:** Medium  
 
-**Steps:**
+**Precondition:**  
+User is on the second screen.
+
+**Steps:**  
 1. Press the device back button.
 
-**Expected Result:**
-User returns to main screen.
-No duplicate screen is created.
+**Expected Result:**  
+- User returns to the main screen.  
+- No duplicate screen instance is created.
 
 ---
 
-### TC-05 – Verify Toast message appears correctly
+### TC-FUN-05 – Verify Toast message behavior
 
-**Precondition:**
-App is on main screen.
+**Priority:** Medium  
 
-**Steps:**
+**Precondition:**  
+Application is on the main screen.
+
+**Steps:**  
 1. Tap "Go to second screen".
 
-**Expected Result:**
-Toast message "Going to second screen" appears once.
-Toast disappears automatically after short duration.
+**Expected Result:**  
+- Toast message appears once.  
+- Toast disappears automatically after a short duration.
 
 ---
 
-### TC-06 – Verify repeated navigation cycles
+### TC-FUN-06 – Verify repeated navigation cycles
 
-**Precondition:**
-App is launched.
+**Priority:** High  
 
-**Steps:**
-1. Tap "Go to second screen".
-2. Tap "Go Back".
+**Precondition:**  
+Application is launched.
+
+**Steps:**  
+1. Tap "Go to second screen".  
+2. Tap "Go Back".  
 3. Repeat steps 1–2 five times.
 
-**Expected Result:**
-Navigation works consistently.
-No blank screen occurs.
-No crash occurs.
+**Expected Result:**  
+- Navigation works consistently.  
+- No blank screen appears.  
+- No crash occurs.
