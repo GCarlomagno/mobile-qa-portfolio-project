@@ -18,6 +18,7 @@ Xiaomi Redmi 12C
 3GB + 3GB extended memory
 
 ---
+---
 
 ## 2. Test Scope
 
@@ -242,7 +243,7 @@ No screenshot required (test passed without abnormal behavior).
 
 ### TC-MOB-05 – Resume after memory pressure simulation
 
-Result: PASS (Minor delay observed)
+Result: PASS (Noticeble delay observed)
 
 Observed Behavior:
 After remaining in background under simulated memory pressure (multiple heavy apps opened),
@@ -250,7 +251,7 @@ the application resumed on the second screen.
 Navigation state was preserved correctly.
 No blank screen, crash, or navigation corruption occurred.
 
-A brief delay (~5 second) was observed before the UI became fully visible.
+A noticeable delay (~5 seconds) was observed before the UI became fully visible after returning from memory pressure conditions.
 No flicker or reload to main screen occurred.
 
 Reproducibility:
@@ -264,6 +265,112 @@ Logcat reviewed – no FATAL EXCEPTION detected.
 
 ### 3.3 Functional Tests
 
+### TC-FUN-01 – Verify application launches successfully
+
+Result: PASS
+
+Observed Behavior:
+Application launched successfully from closed state.
+Main screen was displayed immediately.
+Text "Hello GCarlomagno" was visible.
+No delay, flicker, or crash observed.
+
+Reproducibility:
+Executed once. Behavior stable.
+
+Evidence:
+No screenshot required (test passed without abnormal behavior).
+
+---
+
+### TC-FUN-02 – Verify navigation to second screen
+
+Result: PASS
+
+Observed Behavior:
+Upon tapping "Go to second screen", the Toast message "Going to second screen" appeared once and disappeared automatically after a short duration.
+Second screen was displayed successfully.
+Text "This is the second screen!" was visible.
+No delay, flicker, or duplicate navigation observed.
+
+Reproducibility:
+Executed once. Behavior stable.
+
+Evidence:
+Screenshot captured: /evidence/day6/functional-tests/TC-FUN-02-toast-navigation.png
+
+---
+
+### TC-FUN-03 – Verify back navigation using button
+
+Result: PASS
+
+Observed Behavior:
+Upon tapping "Go Back" on the second screen, the application returned to the main screen.
+Text "Hello GCarlomagno" was visible.
+No delay, flicker, or duplicate screen behavior observed.
+
+Reproducibility:
+Executed once. Behavior stable.
+
+Evidence:
+No screenshot required (test passed without abnormal behavior).
+
+---
+
+### TC-FUN-04 – Verify device back button navigation
+
+Result: PASS
+
+Observed Behavior:
+Pressing the device back button on the second screen returned the user to the main screen.
+The application did not exit.
+No duplicate screen was created.
+No unexpected behavior observed.
+
+Reproducibility:
+Executed once. Behavior stable.
+
+Evidence:
+No screenshot required (test passed without abnormal behavior).
+
+---
+
+### TC-FUN-05 – Verify Toast message appears correctly
+
+Result: PASS
+
+Observed Behavior:
+Toast message "Going to second screen" appeared once upon tapping the button.
+Toast disappeared automatically after a short duration.
+No duplication or persistence observed.
+
+Reproducibility:
+Executed once. Behavior stable.
+
+Evidence:
+Covered under TC-02 screenshot: /evidence/day6/functional-tests/TC-FUN-02-toast-navigation.png
+
+---
+
+### TC-FUN-06 – Verify repeated navigation cycles
+
+Result: PASS
+
+Observed Behavior:
+Navigation between main and second screen was repeated five times at normal user speed.
+Application remained stable.
+No blank screen occurred.
+No crash or navigation instability observed.
+
+Reproducibility:
+Executed once (5 navigation cycles). Behavior stable.
+
+Evidence:
+No screenshot required (test passed without abnormal behavior).
+
+
+---
 ---
 
 ## 4. Observations
@@ -271,15 +378,17 @@ Logcat reviewed – no FATAL EXCEPTION detected.
 - Blank screen defect occurs only under rapid repeated navigation cycles.
 - Issue reproducible in both portrait and landscape modes.
 - Rotation, backgrounding, and device locking do not independently trigger the defect.
-- Minor (~5 second) delay observed under memory pressure conditions on Redmi 12C.
+- A noticeable delay (~5 seconds) was observed before the UI became fully visible after returning from memory pressure conditions.
 - No FATAL EXCEPTION or ANR detected during testing.
 
+---
 ---
 
 ## 5. Potential Defect Candidates
 
 - BUG-01 – Blank white screen after rapid navigation cycles (confirmed and documented).
 
+---
 ---
 
 ## 6. Evidence Collection Policy
@@ -290,6 +399,14 @@ Logcat review required for crashes or UI instability.
 No evidence required for passed test cases unless abnormal behavior observed.
 
 Note:
-Screenshots from exploratory sessions (Day 1–5) have been archived in:
-docs/evidence/day1-5-screenshots/
+Evidence from exploratory sessions (Day 1–5) have been archived in:
+evidence/day1-5/
 
+---
+
+## 7. Day 6 Conclusion
+
+All structured functional, negative, and mobile-specific tests were executed.
+Core functionality remains stable under normal and lifecycle conditions.
+A reproducible navigation defect (BUG-01) was identified under rapid navigation stress.
+A noticeable (~5 seconds) resume delay was observed under memory pressure conditions.
