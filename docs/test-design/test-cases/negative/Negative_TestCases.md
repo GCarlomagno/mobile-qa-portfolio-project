@@ -1,15 +1,22 @@
 # Negative Test Cases
 
-This document contains structured negative and stress test cases designed to identify instability, unexpected behavior, or lifecycle issues in the Android application.
+This document contains structured negative and stress test cases designed to identify instability, unexpected behavior, or abnormal behavior in the Android application.
 
 ---
 
 ### TC-NEG-01 – Rapid navigation cycle stress test (Portrait Mode)
 
-**Priority:** High  
+**Type:**  
+Negative  
 
-**Precondition:**  
+**Priority:**  
+High  
+
+**Preconditions:**  
 Application is launched and device is in portrait mode.
+
+**Test Data:**  
+N/A  
 
 **Steps:**  
 1. Tap "Go to second screen".  
@@ -18,132 +25,311 @@ Application is launched and device is in portrait mode.
 
 **Expected Result:**  
 - Navigation remains stable.  
+- Correct screen is displayed after each action.  
 - No blank screen appears.  
-- No crash occurs.  
+- No crash or freeze occurs.  
 - No duplicate screen instances are created.
 
 ---
 
 ### TC-NEG-02 – Rapid navigation cycle stress test (Landscape Mode)
 
-**Priority:** High  
+**Type:**  
+Negative  
 
-**Precondition:**  
-Application is installed and not running.
+**Priority:**  
+High  
 
-**Steps:**  
-1. Launch the application.  
-2. Rotate device to landscape mode.  
-3. Tap "Go to second screen".  
-4. Tap "Go Back".  
-5. Repeat steps 3–4 rapidly 10 times (as fast as possible).
+**Preconditions:**  
+Application is launched and device is in landscape mode.
 
-**Expected Result:**  
-- Navigation remains stable.  
-- No blank screen appears.  
-- No UI elements disappear.  
-- No crash occurs.
-
----
-
-### TC-NEG-03 – Rotation during navigation cycles
-
-**Priority:** High  
-
-**Precondition:**  
-Application is launched.
+**Test Data:**  
+N/A  
 
 **Steps:**  
 1. Tap "Go to second screen".  
-2. Rotate device (portrait → landscape).  
-3. Tap "Go Back".  
-4. Rotate device again.  
-5. Repeat the sequence 5 times.
+2. Tap "Go Back".  
+3. Repeat steps 1–2 rapidly 10 times (as fast as possible).
 
 **Expected Result:**  
-- Navigation state is preserved.  
-- User remains on the correct screen.  
+- Navigation remains stable.  
+- No UI elements disappear.  
 - No blank screen appears.  
+- No crash or freeze occurs.
+
+---
+
+### TC-NEG-03 – Double-tap navigation button rapidly
+
+**Type:**  
+Negative  
+
+**Priority:**  
+High  
+
+**Preconditions:**  
+Application is launched and user is on the main screen.
+
+**Test Data:**  
+N/A  
+
+**Steps:**  
+1. Rapidly double-tap the "Go to second screen" button multiple times.
+
+**Expected Result:**  
+- Only one navigation event is triggered.  
+- No duplicate screens are created.  
+- Application remains stable and responsive.  
 - No crash occurs.
 
 ---
 
-### TC-NEG-04 – Rapid rotation on second screen
+### TC-NEG-04 – Rapid alternating interaction between buttons
 
-**Priority:** Medium  
+**Type:**  
+Negative  
 
-**Precondition:**  
-User is on the second screen.
+**Priority:**  
+Medium  
+
+**Preconditions:**  
+Application is launched.
+
+**Test Data:**  
+N/A  
 
 **Steps:**  
-1. Rotate device portrait → landscape → portrait rapidly 5 times.
+1. Tap "Go to second screen".  
+2. Immediately tap "Go Back".  
+3. Quickly tap both buttons alternately without waiting for transitions to complete.  
+4. Repeat for 10 seconds.
 
 **Expected Result:**  
-- User remains on the second screen.  
-- Navigation state is preserved.  
+- Application handles rapid input gracefully.  
+- Navigation state remains consistent.  
+- No blank screen appears.  
+- No crash or UI corruption occurs.
+
+---
+
+### TC-NEG-05 – Press back button repeatedly on main screen
+
+**Type:**  
+Negative  
+
+**Priority:**  
+Medium  
+
+**Preconditions:**  
+Application is launched and user is on the main screen.
+
+**Test Data:**  
+N/A  
+
+**Steps:**  
+1. Press the device back button repeatedly (5 times).
+
+**Expected Result:**  
+- Application exits gracefully (if designed to do so).  
+OR  
+- Application remains stable without unexpected behavior.  
+- No crash occurs.
+
+---
+
+### TC-NEG-06 – Rapid device rotation during active navigation
+
+**Type:**  
+Negative  
+
+**Priority:**  
+High  
+
+**Preconditions:**  
+Application is launched.
+
+**Test Data:**  
+N/A  
+
+**Steps:**  
+1. Tap "Go to second screen".  
+2. While the transition is occurring, rotate the device repeatedly.  
+3. Tap "Go Back".  
+4. Repeat the sequence 5 times.
+
+**Expected Result:**  
+- Navigation state remains consistent.  
+- No blank screen appears.  
 - No UI corruption occurs.  
 - No crash occurs.
 
 ---
 
-### TC-NEG-05 – Minimize application during navigation cycle
+### TC-NEG-07 – Interrupt navigation with screen lock
 
-**Priority:** Medium  
+**Type:**  
+Negative  
 
-**Precondition:**  
+**Priority:**  
+Medium  
+
+**Preconditions:**  
 Application is launched.
+
+**Test Data:**  
+N/A  
 
 **Steps:**  
 1. Tap "Go to second screen".  
-2. Press the Home button.  
-3. Reopen the application from recent apps.  
-4. Tap "Go Back".  
-5. Repeat sequence 3 times.
-
-**Expected Result:**  
-- Application resumes correctly.  
-- Navigation state is preserved.  
-- No unexpected reset to the main screen occurs.  
-- No blank screen appears.
-
----
-
-### TC-NEG-06 – Extended background state validation
-
-**Priority:** Medium  
-
-**Precondition:**  
-User is on the second screen.
-
-**Steps:**  
-1. Press the Home button.  
-2. Leave the application in background for 3 minutes.  
-3. Open several other applications.  
-4. Return to the test application.
-
-**Expected Result:**  
-- User remains on the second screen.  
-- No unexpected reload occurs.  
-- No crash occurs.
-
----
-
-### TC-NEG-07 – Navigation combined with rapid screen locking
-
-**Priority:** Medium  
-
-**Precondition:**  
-Application is launched.
-
-**Steps:**  
-1. Tap "Go to second screen".  
-2. Lock the device immediately.  
+2. Immediately lock the device.  
 3. Unlock the device.  
 4. Tap "Go Back".  
 5. Repeat 5 times.
 
 **Expected Result:**  
 - Navigation state is preserved.  
+- Application remains responsive.  
 - No blank screen appears.  
-- No crash occurs.  
-- Application remains responsive.
+- No crash occurs.
+
+---
+
+### TC-NEG-08 – Tap navigation button with extremely slow interaction
+
+**Type:**  
+Negative  
+
+**Priority:**  
+Low  
+
+**Preconditions:**  
+Application is launched.
+
+**Test Data:**  
+N/A  
+
+**Steps:**  
+1. Tap "Go to second screen" very slowly multiple times.
+
+**Expected Result:**  
+- Only one navigation occurs.  
+- No duplicate screens are created.
+
+---
+
+### TC-NEG-09 – Tap screen outside interactive elements repeatedly
+
+**Type:**  
+Negative  
+
+**Priority:**  
+Low  
+
+**Preconditions:**  
+Application is launched.
+
+**Test Data:**  
+N/A  
+
+**Steps:**  
+1. Tap randomly on non-interactive areas 20 times.
+
+**Expected Result:**  
+- No unexpected action is triggered.  
+- Application remains stable.
+
+---
+
+### TC-NEG-10 – Rotate device while rapidly pressing back button
+
+**Type:**  
+Negative  
+
+**Priority:**  
+High  
+
+**Preconditions:**  
+Application is launched.
+
+**Test Data:**  
+N/A  
+
+**Steps:**  
+1. Navigate to second screen.  
+2. Rotate device repeatedly.  
+3. Press device back button multiple times.
+
+**Expected Result:**  
+- Navigation state remains consistent.  
+- No crash occurs.
+
+---
+
+### TC-NEG-11 – Rapidly minimize and reopen during transition
+
+**Type:**  
+Negative  
+
+**Priority:**  
+Medium  
+
+**Preconditions:**  
+Application is launched.
+
+**Test Data:**  
+N/A  
+
+**Steps:**  
+1. Tap "Go to second screen".  
+2. Immediately press Home button.  
+3. Reopen app.  
+4. Repeat 5 times.
+
+**Expected Result:**  
+- Application does not freeze.  
+- No blank screen appears.
+
+### TC-NEG-12 – Attempt navigation during orientation change
+
+**Type:**  
+Negative  
+
+**Priority:**  
+Medium  
+
+**Preconditions:**  
+Application is launched.
+
+**Test Data:**  
+N/A  
+
+**Steps:**  
+1. Rotate device.  
+2. Immediately tap navigation button during rotation.
+
+**Expected Result:**  
+- Only one navigation event occurs.  
+- No duplicate screens appear.
+
+---
+
+### TC-NEG-13 – Press device back button repeatedly after exit
+
+**Type:**  
+Negative  
+
+**Priority:**  
+Low  
+
+**Preconditions:**  
+Application is closed.
+
+**Test Data:**  
+N/A  
+
+**Steps:**  
+1. Press device back button multiple times.
+
+**Expected Result:**  
+- Device behaves normally.  
+- No unexpected reopening of the application occurs.
