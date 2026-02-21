@@ -32,6 +32,8 @@ Test execution focused on:
 
 ## 3. Test Cases Executed
 
+### 3.1 Negative Tests
+
 ### TC-NEG-01 – Rapid navigation cycle stress test (Portrait Mode)
 
 Result: FAIL
@@ -47,7 +49,7 @@ Reproducibility:
 Occurs consistently under rapid navigation stress.
 
 Evidence:
-Screenshot captured. /docs/screenshots/day1-5-screenshots/05-rapid-click-crash.png
+Screenshot captured: /evidence/day6/negative-tests/TC-NEG-01-blank-screen.png
 Logcat reviewed – no FATAL EXCEPTION detected.
 
 ---
@@ -65,7 +67,8 @@ Reproducibility:
 Occurs consistently under rapid navigation stress.
 
 Evidence:
-Screenshot captured.
+Screenshot captured: /evidence/day6/negative-tests/TC-NEG-02-blank-screen-landscape.png
+Logcat reviewed – no FATAL EXCEPTION detected.
 
 ---
 
@@ -81,7 +84,7 @@ Navigation state was preserved correctly.
 User remained on the expected screen throughout the test.
 
 Reproducibility:
-Executed five times. Behavior consistent. No instability reproduced.
+Executed 5 times. Behavior consistent. No instability reproduced.
 
 Evidence:
 No screenshot required (test passed without abnormal behavior).
@@ -99,7 +102,7 @@ No blank screen occurred.
 No UI glitches observed.
 
 Reproducibility:
-Executed five times. No instability reproduced.
+Executed 5 times. No instability reproduced.
 
 Evidence:
 No screenshot required (test passed without abnormal behavior).
@@ -161,17 +164,121 @@ Evidence:
 No screenshot required (test passed without abnormal behavior).
 
 ---
+
+### 3.2 Mobile-Specific Tests
+
+### TC-MOB-01 – Rapid orientation stress
+
+Result: PASS
+
+Observed Behavior:
+Application remained stable during rapid orientation changes (portrait ↔ landscape).
+Current screen remained visible throughout.
+Navigation state was preserved correctly.
+No blank screen occurred.
+No UI flicker, delay, or crash observed.
+
+Reproducibility:
+Executed twice. No instability reproduced.
+
+Evidence:
+No screenshot required (test passed without abnormal behavior).
+
+---
+
+### TC-MOB-02 – Rapid background and foreground switching
+
+Result: PASS
+
+Observed Behavior:
+Application resumed correctly during rapid background and foreground switching.
+User remained on the second screen throughout the test.
+No reload of the main screen occurred.
+No blank screen, flicker, delay, or freeze observed.
+
+Reproducibility:
+Executed twice (10 rapid cycles each time). No instability reproduced.
+
+Evidence:
+No screenshot required (test passed without abnormal behavior).
+
+---
+
+### TC-MOB-03 – Rapid device lock and unlock handling
+
+Result: PASS
+
+Observed Behavior:
+Application remained stable during rapid device lock and unlock cycles.
+Current screen remained visible after each unlock.
+Navigation state was preserved correctly.
+No blank screen, delay, flicker, freeze, or navigation corruption observed.
+
+Reproducibility:
+Executed twice (10 rapid lock/unlock cycles each time). No instability reproduced.
+
+Evidence:
+No screenshot required (test passed without abnormal behavior).
+
+---
+
+### TC-MOB-04 – Mixed lifecycle interruption sequence
+
+Result: PASS
+
+Observed Behavior:
+Application remained stable during combined lifecycle interruptions (rotation, backgrounding, device lock/unlock).
+Navigation state was preserved correctly throughout the test.
+User returned to the expected screen after each interruption cycle.
+No blank screen, delay, freeze, UI flicker, or navigation corruption observed.
+
+Reproducibility:
+Executed 3 full mixed-interruption cycles. No instability reproduced.
+
+Evidence:
+No screenshot required (test passed without abnormal behavior).
+
+---
+
+### TC-MOB-05 – Resume after memory pressure simulation
+
+Result: PASS (Minor delay observed)
+
+Observed Behavior:
+After remaining in background under simulated memory pressure (multiple heavy apps opened),
+the application resumed on the second screen.
+Navigation state was preserved correctly.
+No blank screen, crash, or navigation corruption occurred.
+
+A brief delay (~5 second) was observed before the UI became fully visible.
+No flicker or reload to main screen occurred.
+
+Reproducibility:
+Executed once under memory pressure conditions. Behavior consistent.
+
+Evidence:
+Video: /evidence/day6/mobile-specific/TC-MOB-05-memory-pressure-delay.mp4
+Logcat reviewed – no FATAL EXCEPTION detected.
+
+---
+
+### 3.3 Functional Tests
+
 ---
 
 ## 4. Observations
 
-(To be updated during execution)
+- Blank screen defect occurs only under rapid repeated navigation cycles.
+- Issue reproducible in both portrait and landscape modes.
+- Rotation, backgrounding, and device locking do not independently trigger the defect.
+- Minor (~5 second) delay observed under memory pressure conditions on Redmi 12C.
+- No FATAL EXCEPTION or ANR detected during testing.
 
 ---
 
 ## 5. Potential Defect Candidates
 
-(To be updated if any instability is identified)
+- BUG-01 – Blank white screen after rapid navigation cycles (confirmed and documented).
 
 ---
 
