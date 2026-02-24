@@ -21,6 +21,10 @@ Application is launched.
 - No blank screen appears.  
 - No crash occurs.
 
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
+
 ---
 
 ### TC-MOB-02 – Rapid background and foreground switching
@@ -41,6 +45,10 @@ Application is launched and user is on the second screen.
 - No unexpected reload occurs.  
 - No blank screen appears.
 
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
+
 ---
 
 ### TC-MOB-03 – Rapid device lock and unlock handling
@@ -60,6 +68,10 @@ Application is launched.
 - Current screen remains visible.  
 - No state loss occurs.  
 - No blank screen appears.
+
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
 
 ---
 
@@ -85,6 +97,10 @@ Application is launched.
 - No blank screen occurs.  
 - No crash occurs.
 
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
+
 ---
 
 ### TC-MOB-05 – Resume after memory pressure simulation
@@ -104,6 +120,10 @@ Application is on the second screen.
 - User remains on the second screen.  
 - Application does not restart unexpectedly.  
 - No blank screen appears.
+
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
 
 ---
 
@@ -130,6 +150,10 @@ N/A
 - Main screen is displayed correctly.  
 - No crash or delay occurs.
 
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
+
 ---
 
 ### TC-FUNC-08 – Verify warm start behavior
@@ -155,6 +179,10 @@ N/A
 - User remains on the last active screen.  
 - No UI reset occurs.
 
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
+
 ---
 
 ### TC-FUNC-09 – Verify UI elements are visible in landscape mode
@@ -178,6 +206,10 @@ N/A
 - All UI elements are visible.  
 - No text truncation occurs.  
 - No layout overlap occurs.
+
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
 
 ---
 
@@ -203,6 +235,10 @@ N/A
 - No spelling errors appear.  
 - No text clipping occurs.
 
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
+
 ---
 
 ### TC-FUNC-11 – Verify application state after device rotation
@@ -226,6 +262,10 @@ N/A
 - User remains on second screen.  
 - Content remains consistent.  
 - No unexpected reset occurs.
+
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
 
 ---
 
@@ -253,6 +293,10 @@ N/A
 - No delay occurs.  
 - No crash occurs.
 
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
+
 ---
 
 ### TC-FUNC-13 – Verify application icon launches correct activity
@@ -276,6 +320,12 @@ N/A
 - Application launches main screen.  
 - No intermediate incorrect screen appears.
 
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
+
+---
+
 ### TC-MOB-06 – Behavior during incoming call simulation
 
 **Type:**  
@@ -298,6 +348,12 @@ N/A
 - Application resumes correctly.  
 - State is preserved.
 
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
+
+-
+
 ### TC-MOB-07 – Behavior under low battery mode
 
 **Type:**  
@@ -319,6 +375,10 @@ N/A
 **Expected Result:**  
 - Application remains functional.  
 - No unexpected behavior occurs.
+
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
 
 ---
 
@@ -344,6 +404,10 @@ N/A
 - Application launches correctly.  
 - UI text remains readable.
 
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
+
 ---
 
 ### TC-MOB-09 – Behavior after device reboot
@@ -368,7 +432,9 @@ N/A
 - Application launches normally.  
 - No configuration issues occur.
 
-
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
 
 
 

@@ -30,6 +30,10 @@ N/A
 - No crash or freeze occurs.  
 - No duplicate screen instances are created.
 
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
+
 ---
 
 ### TC-NEG-02 – Rapid navigation cycle stress test (Landscape Mode)
@@ -57,6 +61,10 @@ N/A
 - No blank screen appears.  
 - No crash or freeze occurs.
 
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
+
 ---
 
 ### TC-NEG-03 – Double-tap navigation button rapidly
@@ -81,6 +89,10 @@ N/A
 - No duplicate screens are created.  
 - Application remains stable and responsive.  
 - No crash occurs.
+
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
 
 ---
 
@@ -110,6 +122,10 @@ N/A
 - No blank screen appears.  
 - No crash or UI corruption occurs.
 
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
+
 ---
 
 ### TC-NEG-05 – Press back button repeatedly on main screen
@@ -134,6 +150,10 @@ N/A
 OR  
 - Application remains stable without unexpected behavior.  
 - No crash occurs.
+
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
 
 ---
 
@@ -162,6 +182,10 @@ N/A
 - No blank screen appears.  
 - No UI corruption occurs.  
 - No crash occurs.
+
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
 
 ---
 
@@ -192,6 +216,10 @@ N/A
 - No blank screen appears.  
 - No crash occurs.
 
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
+
 ---
 
 ### TC-NEG-08 – Tap navigation button with extremely slow interaction
@@ -215,6 +243,10 @@ N/A
 - Only one navigation occurs.  
 - No duplicate screens are created.
 
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
+
 ---
 
 ### TC-NEG-09 – Tap screen outside interactive elements repeatedly
@@ -237,6 +269,10 @@ N/A
 **Expected Result:**  
 - No unexpected action is triggered.  
 - Application remains stable.
+
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
 
 ---
 
@@ -262,6 +298,10 @@ N/A
 **Expected Result:**  
 - Navigation state remains consistent.  
 - No crash occurs.
+
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
 
 ---
 
@@ -289,6 +329,12 @@ N/A
 - Application does not freeze.  
 - No blank screen appears.
 
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
+
+-
+
 ### TC-NEG-12 – Attempt navigation during orientation change
 
 **Type:**  
@@ -310,6 +356,10 @@ N/A
 **Expected Result:**  
 - Only one navigation event occurs.  
 - No duplicate screens appear.
+
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
 
 ---
 
@@ -333,3 +383,7 @@ N/A
 **Expected Result:**  
 - Device behaves normally.  
 - No unexpected reopening of the application occurs.
+
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  

@@ -27,6 +27,10 @@ N/A
 - Greeting text is visible and readable.  
 - No crash or error message occurs.
 
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
+
 ---
 
 ### TC-FUNC-02 – Verify navigation to second screen
@@ -52,6 +56,10 @@ N/A
 - Second screen text is visible and readable.  
 - No crash or error message occurs.
 
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
+
 ---
 
 ### TC-FUNC-03 – Verify back navigation using in-app button
@@ -75,6 +83,10 @@ N/A
 - User returns to the main screen.  
 - Main screen greeting text is visible and readable.  
 - No crash or unexpected behavior occurs.
+
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
 
 ---
 
@@ -100,6 +112,10 @@ N/A
 - No duplicate screen instance is created.  
 - No crash or unexpected behavior occurs.
 
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
+
 ---
 
 ### TC-FUNC-05 – Verify Toast message behavior
@@ -124,6 +140,10 @@ N/A
 - Toast is displayed with the correct text.  
 - Toast disappears automatically after a short duration.  
 - No duplicate toast appears.
+
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
 
 ---
 
@@ -153,6 +173,10 @@ N/A
 - No crash occurs.  
 - Application remains responsive.
 
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
+
 ---
 
 ### TC-FUNC-07 – Verify cold start behavior
@@ -177,6 +201,10 @@ N/A
 - Application starts successfully.  
 - Main screen is displayed correctly.  
 - No crash or delay occurs.
+
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
 
 ---
 
@@ -203,6 +231,10 @@ N/A
 - User remains on the last active screen.  
 - No UI reset occurs.
 
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
+
 ---
 
 ### TC-FUNC-09 – Verify UI elements are visible in landscape mode
@@ -226,6 +258,10 @@ N/A
 - All UI elements are visible.  
 - No text truncation occurs.  
 - No layout overlap occurs.
+
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
 
 ---
 
@@ -251,6 +287,10 @@ N/A
 - No spelling errors appear.  
 - No text clipping occurs.
 
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
+
 ---
 
 ### TC-FUNC-11 – Verify application state after device rotation
@@ -274,6 +314,10 @@ N/A
 - User remains on second screen.  
 - Content remains consistent.  
 - No unexpected reset occurs.
+
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
 
 ---
 
@@ -301,6 +345,10 @@ N/A
 - No delay occurs.  
 - No crash occurs.
 
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
+
 ---
 
 ### TC-FUNC-13 – Verify application icon launches correct activity
@@ -323,3 +371,7 @@ N/A
 **Expected Result:**  
 - Application launches main screen.  
 - No intermediate incorrect screen appears.
+
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
