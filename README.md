@@ -85,86 +85,78 @@ The documentation is organized according to the QA lifecycle:
 
 ## Risk Coverage Overview
 
-The test suite was reviewed and classified according to risk areas relevant to Android mobile applications.
+The test suite was reviewed and classified according to risk areas relevant to Android mobile application testing.
 
 ### 🟢 Core Functional Flow
-TC-FUNC-01
-TC-FUNC-02
-TC-FUNC-03
-TC-FUNC-04
-TC-FUNC-06
-TC-FUNC-12
+TC-FUNC-01  
+TC-FUNC-02  
+TC-FUNC-03  
+TC-FUNC-04  
+TC-FUNC-06  
+TC-FUNC-12  
 
-✔ Clean happy path
-✔ Normal navigation
-✔ Back behavior covered
+Covers standard application launch, navigation flow, and back navigation behavior under normal user interaction.
+
+---
 
 ### 🟡 Negative / Stress Interaction
-TC-NEG-01
-TC-NEG-02
-TC-NEG-03
-TC-NEG-04
-TC-NEG-05
-TC-NEG-08
-TC-NEG-09
-TC-NEG-13
+TC-NEG-01  
+TC-NEG-02  
+TC-NEG-03  
+TC-NEG-04  
+TC-NEG-05  
+TC-NEG-08  
+TC-NEG-09  
+TC-NEG-13  
 
-✔ Rapid taps
-✔ Double taps
-✔ Repeated back
-✔ Non-interactive taps
-✔ Stress timing
+Covers rapid interactions, repeated actions, abnormal user behavior patterns, and stress conditions.
 
-Instability hunting.
+---
 
 ### 🔵 Rotation Handling
-TC-FUNC-09
-TC-FUNC-11
-TC-MOB-01
-TC-MOB-04
-TC-NEG-06
-TC-NEG-10
-TC-NEG-12
+TC-FUNC-09  
+TC-FUNC-11  
+TC-MOB-01  
+TC-MOB-04  
+TC-NEG-06  
+TC-NEG-10  
+TC-NEG-12  
 
-✔ Layout validation
-✔ State preservation
-✔ Stress rotation
-✔ Rotation during navigation
+Validates layout integrity, state preservation, and stability during orientation changes.
 
-Mobile credibility.
+---
 
 ### 🟣 Background / Foreground & Interruptions
-TC-FUNC-08
-TC-MOB-02
-TC-MOB-04
-TC-MOB-05
-TC-NEG-07
-TC-NEG-11
+TC-FUNC-08  
+TC-MOB-02  
+TC-MOB-04  
+TC-MOB-05  
+TC-NEG-07  
+TC-NEG-11  
 
-✔ Warm start
-✔ Rapid minimize
-✔ Lock/unlock
-✔ Memory pressure
+Validates application behavior during lifecycle transitions including minimize, restore, lock/unlock, and memory pressure scenarios.
 
-Realistic mobile coverage.
+---
 
 ### 🟠 Network Interruption / Change
-TC-MOB-17
+TC-MOB-17  
 
-✔ Mobile environment condition covered
-✔ Real-world instability scenario
+Validates application stability during network connectivity loss and restoration.
+
+---
 
 ### ⚪ Crash Recovery / Relaunch
-TC-FUNC-07
-(optional support: TC-MOB-05)
+TC-FUNC-07  
+(Supported by TC-MOB-05)
 
-✔ Force-stop relaunch
-✔ Resume after memory pressure
+Validates application behavior after force-stop and resume scenarios.
 
-Acceptable for app scope.
+---
 
 ### ⚪ Permission Handling
-N/A — Application does not request runtime permissions.
+N/A — The application does not request runtime permissions.
+
+---
 
 ### ⚪ Invalid Inputs
-N/A — No input fields; abnormal interaction patterns are covered via negative testing.
+N/A — The application does not contain user input fields. Abnormal interaction behavior is covered through negative test cases.
