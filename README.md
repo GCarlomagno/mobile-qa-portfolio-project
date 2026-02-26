@@ -69,7 +69,7 @@ The documentation is organized according to the QA lifecycle:
 - `/test-plan/` – Planning documentation
 - `/test-design/` – Checklist and test scenarios
 - `/test-execution/` – Exploratory testing notes
-- `/defects/` – Structured bug reports
+- `/docs/defects/` – Structured bug reports
 - `/environment/` – Environment setup details
 
 
@@ -86,6 +86,8 @@ The documentation is organized according to the QA lifecycle:
 ## Risk Coverage Overview
 
 The test suite was reviewed and classified according to risk areas relevant to Android mobile application testing.
+
+---
 
 ### 🟢 Core Functional Flow
 TC-FUNC-01  
@@ -131,15 +133,16 @@ TC-FUNC-08
 TC-MOB-02  
 TC-MOB-04  
 TC-MOB-05  
+TC-MOB-06  
 TC-NEG-07  
 TC-NEG-11  
 
-Validates application behavior during lifecycle transitions including minimize, restore, lock/unlock, and memory pressure scenarios.
+Validates application behavior during lifecycle transitions including minimize, restore, lock/unlock, incoming interruption, and memory pressure scenarios.
 
 ---
 
 ### 🟠 Network Interruption / Change
-TC-MOB-17  
+TC-MOB-10  
 
 Validates application stability during network connectivity loss and restoration.
 
@@ -147,9 +150,10 @@ Validates application stability during network connectivity loss and restoration
 
 ### ⚪ Crash Recovery / Relaunch
 TC-FUNC-07  
+TC-MOB-09  
 (Supported by TC-MOB-05)
 
-Validates application behavior after force-stop and resume scenarios.
+Validates application behavior after force-stop, device reboot, and resume scenarios.
 
 ---
 
