@@ -82,3 +82,98 @@ The documentation is organized according to the QA lifecycle:
 - Defect reporting with evidence
 - Risk-based thinking
 
+
+## Risk Coverage Overview
+
+The test suite was reviewed and classified according to risk areas relevant to Android mobile applications.
+
+
+🟢 Core Functional Flow
+
+TC-FUNC-01
+TC-FUNC-02
+TC-FUNC-03
+TC-FUNC-04
+TC-FUNC-06
+TC-FUNC-12
+
+✔ Clean happy path
+✔ Normal navigation
+✔ Back behavior covered
+
+🟡 Negative / Stress Interaction
+
+TC-NEG-01
+TC-NEG-02
+TC-NEG-03
+TC-NEG-04
+TC-NEG-05
+TC-NEG-08
+TC-NEG-09
+TC-NEG-13
+
+✔ Rapid taps
+✔ Double taps
+✔ Repeated back
+✔ Non-interactive taps
+✔ Stress timing
+
+Good instability hunting.
+
+🔵 Rotation Handling
+
+TC-FUNC-09
+TC-FUNC-11
+TC-MOB-01
+TC-MOB-04
+TC-NEG-06
+TC-NEG-10
+TC-NEG-12
+
+✔ Layout validation
+✔ State preservation
+✔ Stress rotation
+✔ Rotation during navigation
+
+Strong mobile credibility.
+
+🟣 Background / Foreground & Interruptions
+
+TC-FUNC-08
+TC-MOB-02
+TC-MOB-04
+TC-MOB-05
+TC-NEG-07
+TC-NEG-11
+
+✔ Warm start
+✔ Rapid minimize
+✔ Lock/unlock
+✔ Memory pressure
+
+Very realistic mobile coverage.
+
+🟠 Network Interruption / Change
+
+TC-MOB-17
+
+✔ Mobile environment condition covered
+✔ Real-world instability scenario
+
+⚪ Crash Recovery / Relaunch
+
+TC-FUNC-07
+(optional support: TC-MOB-05)
+
+✔ Force-stop relaunch
+✔ Resume after memory pressure
+
+Acceptable for app scope.
+
+⚪ Permission Handling
+
+N/A — Application does not request runtime permissions.
+
+⚪ Invalid Inputs
+
+N/A — No input fields; abnormal interaction patterns are covered via negative testing.

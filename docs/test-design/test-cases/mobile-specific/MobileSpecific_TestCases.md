@@ -127,6 +127,34 @@ Application is on the second screen.
 
 ---
 
+### TC-MOB-06 – Behavior during incoming call simulation
+
+**Type:**  
+Mobile  
+
+**Priority:**  
+Medium  
+
+**Preconditions:**  
+Application is launched.
+
+**Test Data:**  
+N/A  
+
+**Steps:**  
+1. Simulate incoming call (or notification interruption).  
+2. Accept and return to app.
+
+**Expected Result:**  
+- Application resumes correctly.  
+- State is preserved.
+
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
+
+---
+
 ### TC-FUNC-07 – Verify cold start behavior
 
 **Type:**  
@@ -326,35 +354,9 @@ N/A
 
 ---
 
-### TC-MOB-06 – Behavior during incoming call simulation
-
-**Type:**  
-Mobile  
-
-**Priority:**  
-Medium  
-
-**Preconditions:**  
-Application is launched.
-
-**Test Data:**  
-N/A  
-
-**Steps:**  
-1. Simulate incoming call (or notification interruption).  
-2. Accept and return to app.
-
-**Expected Result:**  
-- Application resumes correctly.  
-- State is preserved.
-
-**Execution Result:** Not Executed  
-**Execution Date:**  
-**Notes:**  
-
 -
 
-### TC-MOB-07 – Behavior under low battery mode
+### TC-MOB-14 – Behavior under low battery mode
 
 **Type:**  
 Mobile  
@@ -382,7 +384,7 @@ N/A
 
 ---
 
-### TC-MOB-08 – Behavior when system language changes
+### TC-MOB-15 – Behavior when system language changes
 
 **Type:**  
 Mobile  
@@ -410,7 +412,7 @@ N/A
 
 ---
 
-### TC-MOB-09 – Behavior after device reboot
+### TC-MOB-016 ehavior after device reboot
 
 **Type:**  
 Mobile  
@@ -436,28 +438,39 @@ N/A
 **Execution Date:**  
 **Notes:**  
 
+---
 
+---
 
+### TC-MOB-17 – Network interruption during navigation
 
+**Type:**  
+Mobile  
 
+**Priority:**  
+High  
 
+**Preconditions:**  
+Application is launched and device is connected to the internet (Wi-Fi or mobile data).
 
+**Test Data:**  
+N/A  
 
+**Steps:**  
+1. Tap "Go to second screen".  
+2. Immediately enable Airplane mode (or disable Wi-Fi and mobile data).  
+3. Observe application behavior for 5–10 seconds.  
+4. Disable Airplane mode (restore network connection).  
+5. Tap "Go Back".  
+6. Repeat steps 1–5 once more.
 
+**Expected Result:**  
+- Application remains stable.  
+- Navigation works normally before, during, and after the network change.  
+- No crash or freeze occurs.  
+- No blank screen appears.  
+- UI remains responsive after connectivity is restored.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+**Execution Result:** Not Executed  
+**Execution Date:**  
+**Notes:**  
