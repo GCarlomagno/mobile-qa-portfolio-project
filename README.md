@@ -87,9 +87,7 @@ The documentation is organized according to the QA lifecycle:
 
 The test suite was reviewed and classified according to risk areas relevant to Android mobile applications.
 
-
-🟢 Core Functional Flow
-
+### 🟢 Core Functional Flow
 TC-FUNC-01
 TC-FUNC-02
 TC-FUNC-03
@@ -101,8 +99,7 @@ TC-FUNC-12
 ✔ Normal navigation
 ✔ Back behavior covered
 
-🟡 Negative / Stress Interaction
-
+### 🟡 Negative / Stress Interaction
 TC-NEG-01
 TC-NEG-02
 TC-NEG-03
@@ -118,10 +115,9 @@ TC-NEG-13
 ✔ Non-interactive taps
 ✔ Stress timing
 
-Good instability hunting.
+Instability hunting.
 
-🔵 Rotation Handling
-
+### 🔵 Rotation Handling
 TC-FUNC-09
 TC-FUNC-11
 TC-MOB-01
@@ -135,10 +131,9 @@ TC-NEG-12
 ✔ Stress rotation
 ✔ Rotation during navigation
 
-Strong mobile credibility.
+Mobile credibility.
 
-🟣 Background / Foreground & Interruptions
-
+### 🟣 Background / Foreground & Interruptions
 TC-FUNC-08
 TC-MOB-02
 TC-MOB-04
@@ -151,17 +146,15 @@ TC-NEG-11
 ✔ Lock/unlock
 ✔ Memory pressure
 
-Very realistic mobile coverage.
+Realistic mobile coverage.
 
-🟠 Network Interruption / Change
-
+### 🟠 Network Interruption / Change
 TC-MOB-17
 
 ✔ Mobile environment condition covered
 ✔ Real-world instability scenario
 
-⚪ Crash Recovery / Relaunch
-
+### ⚪ Crash Recovery / Relaunch
 TC-FUNC-07
 (optional support: TC-MOB-05)
 
@@ -170,10 +163,8 @@ TC-FUNC-07
 
 Acceptable for app scope.
 
-⚪ Permission Handling
-
+### ⚪ Permission Handling
 N/A — Application does not request runtime permissions.
 
-⚪ Invalid Inputs
-
+### ⚪ Invalid Inputs
 N/A — No input fields; abnormal interaction patterns are covered via negative testing.
