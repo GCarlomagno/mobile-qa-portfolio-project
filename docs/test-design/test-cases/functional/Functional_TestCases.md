@@ -19,9 +19,10 @@ This document contains structured functional test cases for the Android applicat
 - Greeting text is visible and readable.
 - No crash or error message occurs.
 
-**Execution Result:** Not Executed  
-**Execution Date:**  
-**Notes:**
+**Execution Result:** Pass  
+**Execution Date:**  2026-02-27
+**Notes:** Application launched successfully and navigated to the Home screen without delay
+**Evidence:** /docs/evidence/week3/day1/TC-FUNC-01-pass.png
 
 ---
 
@@ -40,9 +41,10 @@ This document contains structured functional test cases for the Android applicat
 - Second screen text is visible and readable.
 - No crash or error message occurs.
 
-**Execution Result:** Not Executed  
-**Execution Date:**  
-**Notes:**
+**Execution Result:** Pass
+**Execution Date:**  2026-02-27
+**Notes:** Application navigated successfully to the second screen and toast message was displayied briefly without crash.
+**Evidence:** /docs/evidence/week3/day1/TC-FUNC-02-pass.png
 
 ---
 
@@ -60,9 +62,9 @@ This document contains structured functional test cases for the Android applicat
 - Main screen greeting text is visible and readable.
 - No crash or unexpected behavior occurs.
 
-**Execution Result:** Not Executed  
-**Execution Date:**  
-**Notes:**
+**Execution Result:** Pass
+**Execution Date:**  2026-02-27
+**Notes:** Application successfully navigated back to the Home screen and greeting text was visible without crash.
 
 ---
 
@@ -82,7 +84,7 @@ This document contains structured functional test cases for the Android applicat
 
 **Execution Result:** Not Executed  
 **Execution Date:**  
-**Notes:**
+**Notes:** Application successfully navigated back to the Home screen and greeting text was visible without crash.
 
 ---
 
@@ -101,9 +103,9 @@ This document contains structured functional test cases for the Android applicat
 - Toast disappears automatically after a short duration.
 - No duplicate toast appears.
 
-**Execution Result:** Not Executed  
-**Execution Date:**  
-**Notes:**
+**Execution Result:** Pass
+**Execution Date:**  2026-02-27
+**Notes:** Toast message was displayed once with the correct text and disappeared automatically without duplication or crash.
 
 ---
 
@@ -125,9 +127,9 @@ This document contains structured functional test cases for the Android applicat
 - No crash occurs.
 - Application remains responsive.
 
-**Execution Result:** Not Executed  
-**Execution Date:**  
-**Notes:**
+**Execution Result:** Pass
+**Execution Date:**  2026-02-27
+**Notes:** Application successfully navigated back and forth 5 times without crash, blank screen, or loss of responsiveness.
 
 ---
 
@@ -147,9 +149,9 @@ This document contains structured functional test cases for the Android applicat
 - No crash occurs.
 - Launch time is within acceptable range (no excessive delay).
 
-**Execution Result:** Not Executed  
-**Execution Date:**  
-**Notes:**
+**Execution Result:** Pass
+**Execution Date:**  2026-02-27
+**Notes:** Application started successfully after being force stopped, and the Home screen was displayed without crash or excessive delay.
 
 ---
 
@@ -168,9 +170,9 @@ This document contains structured functional test cases for the Android applicat
 - User remains on the last active screen.
 - No UI reset occurs.
 
-**Execution Result:** Not Executed  
-**Execution Date:**  
-**Notes:**
+**Execution Result:** Pass
+**Execution Date:**  2026-02-27
+**Notes:** Application resumed quickly to the last active screen without UI reset or crash.
 
 ---
 
@@ -188,9 +190,10 @@ This document contains structured functional test cases for the Android applicat
 - No text truncation occurs.
 - No layout overlap occurs.
 
-**Execution Result:** Not Executed  
-**Execution Date:**  
-**Notes:**
+**Execution Result:** Pass
+**Execution Date:**  2026-02-27
+**Notes:** Application rotated successfully to landscape mode, and all UI elements were visible without text truncation or layout overlap.
+**Evidence:** /docs/evidence/week3/day1/TC-FUNC-09-pass.png
 
 ---
 
@@ -208,9 +211,10 @@ This document contains structured functional test cases for the Android applicat
 - No spelling errors appear.
 - No text clipping occurs.
 
-**Execution Result:** Not Executed  
-**Execution Date:**  
-**Notes:**
+**Execution Result:** Fail
+**Execution Date:** 2026-02-27
+**Notes:** In landscape mode, part of the button and screen text appears under the system status bar, causing text clipping. As a result, full label readability could not be verified.
+**Evidence:** /docs/evidence/week3/day1/TC-FUNC-10-fail.png
 
 ---
 
@@ -228,9 +232,11 @@ This document contains structured functional test cases for the Android applicat
 - Content remains consistent.
 - No unexpected reset occurs.
 
-**Execution Result:** Not Executed  
-**Execution Date:**  
-**Notes:**
+**Execution Result:** Pass
+**Execution Date:**  2026-02-27
+**Notes:** Application remained on the Second screen after rotation, and content remained consistent without reset or crash.
+**Evidence:** /docs/evidence/week3/day1/TC-FUNC-11-pass.png
+
 
 ---
 
@@ -250,9 +256,9 @@ This document contains structured functional test cases for the Android applicat
 - No delay occurs.
 - No crash occurs.
 
-**Execution Result:** Not Executed  
-**Execution Date:**  
-**Notes:**
+**Execution Result:** Pass 
+**Execution Date:**  2026-02-27
+**Notes:** Application navigated to the Second screen and returned to the Home screen after a 3-second wait without delay or crash.
 
 ---
 
@@ -270,6 +276,29 @@ This document contains structured functional test cases for the Android applicat
 - No intermediate incorrect screen appears.
 - No crash occurs.
 
-**Execution Result:** Not Executed  
-**Execution Date:**  
-**Notes:**
+**Execution Result:** Pass
+**Execution Date:**  2026-02-27
+**Notes:** Application launched from the device Home screen and displayed the Main screen without intermediate screens or crash.
+
+---
+
+### TC-FUNC-14 – Verify button labels display correctly on second screen
+**Type:** Functional  
+**Priority:** Medium  
+**Preconditions:** User is on the second screen.  
+**Test Data:** N/A  
+
+**Steps:**
+1. Rotate the device to landscape mode.
+2. Observe all visible buttons and text elements on the second screen.
+
+**Expected Result:**
+- Button text is readable.
+- No spelling errors appear.
+- No text clipping occurs.
+- UI elements respect system safe areas.
+
+**Execution Result:** Fail  
+**Execution Date:** 2026-02-27  
+**Notes:** In landscape mode, part of the button and screen text on the Second screen is rendered under the system navigation bar, causing visible clipping and reduced readability.  
+**Evidence:** /docs/evidence/week3/day1/TC-FUNC-14-fail.png
