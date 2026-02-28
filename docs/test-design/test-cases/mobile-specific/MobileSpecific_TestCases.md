@@ -20,10 +20,11 @@ This document contains structured mobile-specific test cases focusing on Android
 - No blank screen appears.
 - No crash occurs.
 
-**Execution Result:** Not Executed  
-**Execution Date:**  
-**Notes:**
-**Evidence:**
+**Execution Result:** pass
+**Execution Date:**  2026-02-28
+**Notes:** App rotated between portrait and landscape 10 times consecutively.
+No crash, blank screen, freeze, or navigation reset observed.
+DEF-001 behavior unchanged.
 
 ---
 
@@ -44,10 +45,11 @@ This document contains structured mobile-specific test cases focusing on Android
 - No unexpected reload occurs.
 - No blank screen appears.
 
-**Execution Result:** Not Executed  
-**Execution Date:**  
-**Notes:**
-**Evidence:**
+**Execution Result:** Pass 
+**Execution Date:**  2026-02-28
+**Notes:** Application was backgrounded and resumed 10 times rapidly.
+App returned to the Second screen each time.
+No reload, blank screen, crash, or state loss observed.
 
 ---
 
@@ -68,10 +70,12 @@ This document contains structured mobile-specific test cases focusing on Android
 - No state loss occurs.
 - No blank screen appears.
 
-**Execution Result:** Not Executed  
-**Execution Date:**  
-**Notes:**
-**Evidence:**
+**Execution Result:** Pass  
+**Execution Date:**  2026-02-28
+**Notes:** Application remained responsive and current screen remained visible after locking and unlocking the device 10 times. No state loss occurred or blank screen appeared.
+**Evidence:** 
+/docs/evidence/week3/day2/TC-MOB-03-locked-screen-pass.png
+/docs/evidence/week3/day2/TC-MOB-03-unlocked-screen-pass.png
 
 ---
 
@@ -96,10 +100,11 @@ This document contains structured mobile-specific test cases focusing on Android
 - No blank screen occurs.
 - No crash occurs.
 
-**Execution Result:** Not Executed  
-**Execution Date:**  
-**Notes:**
-**Evidence:**
+**Execution Result:** Pass  
+**Execution Date:**  2026-02-28
+**Notes:** Full lifecycle interruption sequence executed 3 times.
+Navigation state preserved after each cycle.
+No blank screen, crash, freeze, or navigation corruption observed.
 
 ---
 
@@ -120,11 +125,11 @@ This document contains structured mobile-specific test cases focusing on Android
 - Application does not restart unexpectedly.
 - No blank screen appears.
 
-**Execution Result:** Not Executed  
-**Execution Date:**  
-**Notes:**
-**Evidence:**
-
+**Execution Result:** Pass 
+**Execution Date:**  2026-02-28
+**Notes:** After pressing the Home button and opening multiple resource-intensive applications, the Application was resumed from the recent apps list and remained on the Second screen. No restart, blank screen, crash, or state loss occurred.
+**Evidence:** 
+/docs/evidence/week3/day2/TC-MOB-05-pass.mp4
 ---
 
 ### TC-MOB-06 – Behavior during incoming call simulation
@@ -144,7 +149,7 @@ This document contains structured mobile-specific test cases focusing on Android
 
 **Execution Result:** Not Executed  
 **Execution Date:**  
-**Notes:**
+**Notes:** Incoming call simulation not executed due to device environment limitations (no SIM card available).
 **Evidence:**
 
 ---
@@ -236,7 +241,6 @@ This document contains structured mobile-specific test cases focusing on Android
 - No blank screen appears.
 - UI remains responsive after connectivity is restored.
 
-**Execution Result:** Not Executed  
-**Execution Date:**  
-**Notes:**
-**Evidence:**
+**Execution Result:** Pass
+**Execution Date:** 2026-02-28 
+**Notes:** With Wi-Fi enabled and connected, the Application navigated correctly after pressing "Go to second screen". Airplane Mode was enabled for 10 seconds during testing. The Application remained stable during network interruption and after connectivity was restored. No crash, freeze, blank screen, reload, or UI unresponsiveness was observed. Full test sequence was repeated 2 times with consistent results.

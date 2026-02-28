@@ -237,7 +237,6 @@ This document contains structured functional test cases for the Android applicat
 **Notes:** Application remained on the Second screen after rotation, and content remained consistent without reset or crash.
 **Evidence:** /docs/evidence/week3/day1/TC-FUNC-11-pass.png
 
-
 ---
 
 ### TC-FUNC-12 – Verify navigation without rapid interaction
