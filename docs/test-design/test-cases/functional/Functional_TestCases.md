@@ -82,8 +82,8 @@ This document contains structured functional test cases for the Android applicat
 - No duplicate screen instance is created.
 - No crash or unexpected behavior occurs.
 
-**Execution Result:** Not Executed  
-**Execution Date:**  
+**Execution Result:** Pass
+**Execution Date:**  2026-02-27
 **Notes:** Application successfully navigated back to the Home screen and greeting text was visible without crash.
 
 ---

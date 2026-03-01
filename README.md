@@ -80,12 +80,12 @@ Each defect report includes:
 
 The documentation is organized according to the QA lifecycle:
 
-- `/test-plan/` – Planning documentation
-- `/test-design/` – Structured test cases and checklists
-- `/test-execution/` – Exploratory testing notes and summary reports
+- `/docs/test-plan/` – Planning documentation
+- `/docs/test-design/` – Structured test cases and checklists
+- `/docs/test-execution/` – Exploratory testing notes and summary reports
 - `/docs/defects/` – Structured bug reports
 - `/docs/evidence/` – Screenshots and video evidence
-- `/environment/` – Environment setup details
+- `/docs/environment/` – Environment setup details
 - `Requirement_Traceability_Matrix.md` – Risk-to-test mapping
 
 ---

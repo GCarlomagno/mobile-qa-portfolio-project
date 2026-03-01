@@ -20,7 +20,7 @@ This document contains structured mobile-specific test cases focusing on Android
 - No blank screen appears.
 - No crash occurs.
 
-**Execution Result:** pass
+**Execution Result:** Pass
 **Execution Date:**  2026-02-28
 **Notes:** App rotated between portrait and landscape 10 times consecutively.
 No crash, blank screen, freeze, or navigation reset observed.
@@ -130,6 +130,7 @@ No blank screen, crash, freeze, or navigation corruption observed.
 **Notes:** After pressing the Home button and opening multiple resource-intensive applications, the Application was resumed from the recent apps list and remained on the Second screen. No restart, blank screen, crash, or state loss occurred.
 **Evidence:** 
 /docs/evidence/week3/day2/TC-MOB-05-pass.mp4
+
 ---
 
 ### TC-MOB-06 – Behavior during incoming call simulation

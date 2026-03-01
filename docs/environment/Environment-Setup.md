@@ -6,7 +6,7 @@
 - Disk Allocation: 100Gb
 
 ## 2. Operating System
-- OS: Windows 11 Pro
+- OS: Windows 11 Pro 25H2
 - Version: 10.0.26200 Build 26200
 
 ## 3. Development Tools
@@ -17,15 +17,15 @@
     - Runtime version: 21.0.9+-14649483-b1163.86 amd64
     - VM: OpenJDK 64-Bit Server VM by JetBrains s.r.o.
     - Toolkit: sun.awt.windows.WToolkit
-    - Windows 11.0
+    - Windows 11
     - GC: G1 Young Generation, G1 Concurrent GC, G1 Old Generation
     - Memory: 2048M
     - Cores: 4
     - Registry: ide.experimental.ui=true
 
 ## 4. Test Device Configuration
-- Devide Model: Redmi 12C
-- Manufactor: Xiaomi
+- Devid Model: Redmi 12C
+- Manufacturer: Xiaomi
 - Android Version: 14 UP1A.231005.007
 - Android Security Update: 2025-12-01
 - API Level: API 34
