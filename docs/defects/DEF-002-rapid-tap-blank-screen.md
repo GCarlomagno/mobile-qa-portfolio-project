@@ -1,16 +1,19 @@
 # DEF-002 – Blank White Screen After Rapid Navigation Cycles
 
-**Status:** Open – Pending structured negative test execution  
+**Status:** Open – Reproducible under structured rapid navigation stress conditions (Validated 2026-03-03)
 **Severity:** Major  
-**Reported Date:** 2026-02-18
+**Reported Date:** 2026-02-18  
 **Related Risk:** R-05 – Rapid / Abnormal User Interaction  
-**Linked Test Cases:** TC-NEG-01, TC-NEG-02, TC-NEG-03 (Designed – Not Executed)
+**Linked Test Cases:** 
+- TC-NEG-01 – Failed (2026-03-03)
+- TC-NEG-02 – Failed (2026-03-03)
+- TC-NEG-03 – Failed (2026-03-03)
 
 ---
 
-## Summary
+## Summary 
 
-The Application displays a completely blank white screen after rapid repeated navigation between the main screen and the second screen.
+The application displays a completely blank white screen after rapid repeated navigation between the main screen and the second screen.
 
 ---
 
@@ -69,7 +72,9 @@ The Application displays a completely blank white screen after rapid repeated na
 
 ## Reproducibility
 
-Occurs consistently under rapid navigation stress conditions.
+Reproduced under structured rapid navigation stress execution on 2026-03-03. 
+Blank screen consistently occurred after approximately 5 rapid navigation cycles 
+in both portrait and landscape orientations.
 
 ---
 

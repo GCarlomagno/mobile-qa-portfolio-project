@@ -22,10 +22,10 @@ This document contains structured negative and stress test cases designed to ide
 - No crash or freeze occurs.
 - No duplicate screen instances are created.
 
-**Execution Result:** Not Executed  
-**Execution Date:**  
-**Notes:**
-**Evidence:**
+**Execution Result:** Fail
+**Execution Date:** 2026-03-03
+**Notes:** Blank white screen reproduced after approximately 5 rapid navigation cycles in portrait mode. Application process remained active. No crash dialog observed. UI fully disappeared.  
+**Evidence:** evidence/week3/day4/2026-03-03/TC-NEG-01/TC-NEG-01-rapid-navigation-cycle-fail.mp4
 
 ---
 
@@ -46,10 +46,10 @@ This document contains structured negative and stress test cases designed to ide
 - No blank screen appears.
 - No crash or freeze occurs.
 
-**Execution Result:** Not Executed  
-**Execution Date:**  
-**Notes:**
-**Evidence:**
+**Execution Result:** Fail  
+**Execution Date:** 2026-03-03  
+**Notes:** Blank white screen reproduced after approximately 5 rapid navigation cycles in landscape mode. Application process remained active. No crash dialog observed. UI fully disappeared.  
+**Evidence:** evidence/week3/day4/2026-03-03/TC-NEG-02/TC-NEG-02-rapid-navigation-cycle-landscape-fail.mp4
 
 ---
 
@@ -68,10 +68,10 @@ This document contains structured negative and stress test cases designed to ide
 - Application remains stable and responsive.
 - No crash occurs.
 
-**Execution Result:** Not Executed  
-**Execution Date:**  
-**Notes:**
-**Evidence:**
+**Execution Result:** Fail
+**Execution Date:** 2026-03-03
+**Notes:** Blank white screen reproduced under rapid repeated navigation triggering. Behavior consistent with TC-NEG-01 due to immediate navigation handling. No crash observed.
+**Evidence:** Evidence: evidence/week3/day4/2026-03-03/TC-NEG-03/TC-NEG-03-double-tap-fail.mp4
 
 ---
 
