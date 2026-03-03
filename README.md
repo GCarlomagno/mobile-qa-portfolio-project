@@ -1,14 +1,28 @@
 # 📱 Android Mobile QA Testing Portfolio Project
 
+**Application Version Tested:** 1.0 (Local Debug Build)  
+**Test Cycle Version:** 1.1  
+**Test Execution Period:** 2026-02-18 – 2026-03-03  
+**Test Device:** Xiaomi Redmi 12C (Android 14, API 34)
+
 ---
 
 ## 📌 Project Overview
 
-This repository demonstrates a structured manual mobile testing cycle performed on a custom-built Android application.
+This repository demonstrates a complete structured manual testing cycle executed on an Android mobile application.
 
-The primary focus of this project was validating Android-specific behaviors such as activity lifecycle transitions, navigation stability, UI responsiveness, and state handling during configuration changes.
+The objective of the test cycle was to validate application stability across Android lifecycle transitions, navigation behavior, UI interaction reliability, and abnormal user interaction scenarios.
 
-The project follows a complete QA workflow including test planning, test design, execution, defect reporting, and documentation organization.
+The project includes full QA documentation artifacts:
+
+- Test Plan
+- Structured Test Cases (Functional, Negative, Mobile-specific)
+- Requirement Traceability Matrix (RTM)
+- Exploratory Testing Notes
+- Defect Reports with reproducible steps and evidence
+- Test Summary Report
+
+All artifacts follow standardized documentation conventions to simulate real project-level QA execution.
 
 ---
 
@@ -117,13 +131,36 @@ This ensures consistency, clarity, and traceability across all QA deliverables.
 
 ---
 
-# Risk Coverage Overview
+## 🧪 Test Execution Results
 
-The test suite is mapped to identified project risks as defined in the Requirement Traceability Matrix (RTM).
+- **Total Test Cases Designed:** 37  
+- **Test Cases Executed:** Core functional + mobile lifecycle scenarios ([Test Summary Report](docs/test-execution/TestSummaryReport.md))  
+- **Defects Identified:** 2 ([DEF-001](docs/defects/DEF-001.md), [DEF-002](docs/defects/DEF-002.md))  
+- **Exploratory Session Conducted:** Yes ([ExploratoryTesting.md](docs/test-execution/ExploratoryTesting.md))  
+- **Risk Coverage Maintained via RTM:** Yes ([Requirement_Traceability_Matrix.md](Requirement_Traceability_Matrix.md))
+
+Execution included structured validation as well as exploratory stress testing to assess behavior under rapid user interaction and lifecycle edge conditions.
 
 ---
 
-### 🔴 R-01 — Application Launch & Relaunch
+## ⚠ Risk-Based Coverage Overview
+
+The test suite was mapped against identified project risks using a Requirement Traceability Matrix (RTM).
+
+| Risk ID | Risk Area | Coverage Status | Defect Impact |
+|---------|-----------|----------------|---------------|
+| R-01 | Application Launch & Relaunch | Partially Executed | None |
+| R-02 | Navigation Flow Stability | Partially Executed | DEF-002 |
+| R-03 | Screen Rotation Handling | Executed | DEF-001 |
+| R-04 | Background / Foreground Lifecycle | Executed | None |
+| R-05 | Rapid / Abnormal Interaction | Partially Executed | DEF-002 |
+| R-06 | Network Interruption Handling | Executed | None |
+| R-07 | UI Feedback Consistency | Executed | None |
+| R-08 | Environmental Conditions | Designed | None |
+
+Full traceability mapping is available in the [Requirement_Traceability_Matrix.md](Requirement_Traceability_Matrix.md).
+
+---
 
 **Test Cases:**  
 TC-FUNC-01  
