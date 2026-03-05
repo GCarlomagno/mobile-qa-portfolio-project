@@ -228,11 +228,84 @@ FROM orders
 WHERE status = 'PAID';
 ```
 
+### Scenario 9 — Detect Users With NULL Critical Fields
+
+**QA Context:**  
+After user registration or profile updates, records may be saved incorrectly due to partial inserts, backend validation failures, or unexpected system errors.
+
+**Validation Goal:**
+Identify users with missing critical information required for proper account operation.
+
+**SQL Query:**
+
+```sql
+SELECT id, name, email, status, created_at
+FROM users
+WHERE email IS NULL
+   OR status IS NULL
+   OR created_at IS NULL;
+```
 **What QA Validates:**
 
 - Recently paid orders appear with status = 'PAID'
 - No paid orders remain in incorrect states such as 'CREATED'
 - Status transitions reflect business rules correctly
+
+### Scenario 10 — Detect Invalid or Negative Order Amounts
+
+**QA Context:**  
+Order totals recorded in the database must reflect valid financial transactions.  
+Backend calculation errors, discount logic issues, or data corruption could result in invalid values.
+
+**Validation Goal:**
+Identify orders where the recorded amount is invalid.
+
+**SQL Query:**
+
+```sql
+SELECT id, user_id, total_amount, status, created_at
+FROM orders
+WHERE total_amount IS NULL
+   OR total_amount <= 0;
+```  
+
+### Scenario 11 — Detect Duplicate Orders for the Same User
+
+**QA Context:**  
+Users may accidentally trigger multiple order submissions due to double taps, network retries, or backend processing issues.  
+Such situations can create duplicate orders that should not exist.
+
+**Validation Goal:**
+Identify potential duplicate orders created for the same user at the same time.
+
+**SQL Query:**
+
+```sql
+SELECT user_id,
+       created_at,
+       COUNT(*) AS order_count
+FROM orders
+GROUP BY user_id, created_at
+HAVING COUNT(*) > 1;
+```
+
+### Scenario 12 — Detect Inconsistent Order Status and Amount
+
+**QA Context:**  
+Orders should follow valid business rules.  
+For example, an order marked as `PAID` should always have a valid positive monetary value.
+
+**Validation Goal:**
+Detect orders where the lifecycle status does not match the financial value recorded.
+
+**SQL Query:**
+
+```sql
+SELECT id, user_id, total_amount, status, created_at
+FROM orders
+WHERE status = 'PAID'
+  AND (total_amount IS NULL OR total_amount <= 0);
+```
 
 ---
 
@@ -244,7 +317,8 @@ WHERE status = 'PAID';
 - ORDER BY  
 - JOIN  
 - GROUP BY  
-- SUM  
+- HAVING  
+- SUM
 
 ---
 
@@ -258,3 +332,74 @@ They are used to validate:
 - Business rule enforcement  
 - Data integrity  
 - Prevention of inconsistent states  
+
+### 5.1 Data Anomaly Mindset (What Can Go Wrong?)
+
+In addition to validating expected results, QA should actively search for anomalies that may indicate backend issues, such as:
+
+- **Missing critical values:** NULL in required fields (email, status, created_at)
+- **Invalid numeric values:** totals that are zero, negative, or NULL
+- **Duplicate transactions:** double taps, network retries, missing idempotency (multiple operations result the same as performing it once)
+- **Inconsistent state:** status values that do not match other fields (e.g., PAID with 0 total)
+
+These checks improve defect detection and make database validation more investigation-oriented.
+
+---
+
+## 6. Local Database Execution Plan
+
+To execute these validation scenarios in a controlled environment, a local test database will be created.
+
+### Planned Tool
+
+SQLite will be used because it is lightweight and easy to run locally.
+
+Possible tools:
+
+- SQLite CLI
+- DB Browser for SQLite
+
+### Planned Tables
+
+The following tables will be created:
+
+**users**
+
+- id (INT)
+- name (VARCHAR)
+- email (VARCHAR)
+- status (VARCHAR)
+- created_at (TIMESTAMP)
+
+**orders**
+
+- id (INT)
+- user_id (INT)
+- total_amount (DECIMAL)
+- status (VARCHAR)
+- created_at (TIMESTAMP)
+
+### Planned Test Data
+
+Test data will include both valid and intentionally incorrect records to validate anomaly detection queries.
+
+Examples:
+
+- Valid user with normal orders
+- User with `NULL` email
+- User with `NULL` status
+- Order with `total_amount = 0`
+- Order with `total_amount < 0`
+- Duplicate orders for the same user
+- Order with `status = 'PAID'` but invalid amount
+
+### Planned Execution
+
+During the next steps of this project:
+
+- The database schema will be created locally
+- Test data will be inserted
+- SQL validation queries from this document will be executed
+- Evidence (query results and screenshots) will be collected
+
+This will demonstrate practical SQL-based validation performed by a QA engineer during backend testing.
