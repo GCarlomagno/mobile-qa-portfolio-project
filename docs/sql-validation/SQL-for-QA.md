@@ -221,7 +221,7 @@ WHERE u.id IS NULL;
 - Any returned record indicates a broken foreign key relationship
 - Such issues may lead to reporting inconsistencies or system errors
 
-### 3.8 Scenario - Validate Orders by Status
+### 3.8 Scenario - Validate Completed Orders
 
 **QA Context:**  
 After completing an order payment, verify that the order status is correctly updated in the database.
@@ -234,7 +234,7 @@ Ensure orders reflect the correct lifecycle state.
 ```sql
 SELECT id, user_id, status
 FROM orders
-WHERE status = 'PAID';
+WHERE status = 'COMPLETED';
 ```
 
 **What QA Validates:**
