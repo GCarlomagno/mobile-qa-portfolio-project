@@ -41,7 +41,7 @@ For demonstration purposes, we assume a simplified application database with the
 
 ## 3. Core Validation Scenarios
 
-### Scenario 1 — Validate New User Registration
+### 3.1 Scenario - Validate New User Registration
 
 **QA Context:**  
 After registering a new user via the UI, verify that the record was correctly inserted into the database.
@@ -66,7 +66,7 @@ WHERE email = 'testuser@email.com';
 - created_at IS NOT NULL
 - Email value matches the one used during registration
 
-### Scenario 2 — Validate Duplicate Email Prevention
+### 3.2 Scenario - Validate Duplicate Email Prevention
 
 **QA Context:**  
 The application should prevent multiple accounts from being created with the same email address.
@@ -88,7 +88,7 @@ WHERE email = 'testuser@email.com';
 - If COUNT > 1 → Data integrity defect  
 - If COUNT = 0 → Registration persistence failure  
 
-### Scenario 3 — Validate Latest Registered User
+### 3.3 Scenario - Validate Latest Registered User
 
 **QA Context:**  
 After registering a new user, verify that it appears as the most recent record in the database.
@@ -110,7 +110,7 @@ ORDER BY created_at DESC;
 - created_at timestamp reflects the recent registration time
 - No unexpected records appear after the test action
 
-### Scenario 4 — Validate Order Linked to Correct User
+### 3.4 Scenario - Validate Order Linked to Correct User
 
 **QA Context:**  
 After a user places an order via the UI or API, verify that the order is correctly linked to the corresponding user in the database.
@@ -138,7 +138,7 @@ WHERE u.email = 'testuser@email.com';
 - amount reflects the UI transaction
 - Order status is correct (e.g., 'CREATED' or 'PAID')
 
-### Scenario 5 — Validate Total Number of Orders per User
+### 3.5 Scenario - Validate Total Number of Orders per User
 
 **QA Context:**  
 After placing multiple orders, verify that the total number of orders associated with a user matches the expected count.
@@ -163,7 +163,7 @@ GROUP BY u.email;
 - No unexpected duplicate records exist
 - Aggregation logic reflects actual transactional activity
 
-### Scenario 6 — Validate Total Order Amount per User
+### 3.6 Scenario - Validate Total Order Amount per User
 
 **QA Context:**  
 After placing multiple orders, verify that the total monetary amount recorded in the database matches the expected sum of transactions.
@@ -196,7 +196,7 @@ WHERE user_id = (
 - No incorrect duplication inflates the total
 - Monetary precision is preserved (no rounding anomalies)
 
-### Scenario 7 — Detect Orphan Orders (Data Integrity Check)
+### 3.7 Scenario - Detect Orphan Orders (Data Integrity Check)
 
 **QA Context:**  
 Verify that every order in the database is linked to an existing user.  
@@ -221,7 +221,7 @@ WHERE u.id IS NULL;
 - Any returned record indicates a broken foreign key relationship
 - Such issues may lead to reporting inconsistencies or system errors
 
-### Scenario 8 — Validate Orders by Status
+### 3.8 Scenario - Validate Orders by Status
 
 **QA Context:**  
 After completing an order payment, verify that the order status is correctly updated in the database.
@@ -237,7 +237,13 @@ FROM orders
 WHERE status = 'PAID';
 ```
 
-### Scenario 9 — Detect Users With NULL Critical Fields
+**What QA Validates:**
+
+- Recently paid orders appear with status = 'PAID'
+- No paid orders remain in incorrect states such as 'CREATED'
+- Status transitions reflect business rules correctly
+
+### 3.9 Scenario - Detect Users With NULL Critical Fields
 
 **QA Context:**  
 After user registration or profile updates, records may be saved incorrectly due to partial inserts, backend validation failures, or unexpected system errors.
@@ -256,11 +262,11 @@ WHERE email IS NULL
 ```
 **What QA Validates:**
 
-- Recently paid orders appear with status = 'PAID'
-- No paid orders remain in incorrect states such as 'CREATED'
-- Status transitions reflect business rules correctly
+- User records missing mandatory information
+- Backend validation failures during user creation
+- Data corruption or incomplete persistence
 
-### Scenario 10 — Detect Invalid or Negative Order Amounts
+### 3.10 Scenario - Detect Invalid or Negative Order Amounts
 
 **QA Context:**  
 Order totals recorded in the database must reflect valid financial transactions.  
@@ -278,7 +284,7 @@ WHERE amount IS NULL
    OR amount <= 0;
 ```  
 
-### Scenario 11 — Detect Duplicate Orders for the Same User
+### 3.11 Scenario - Detect Duplicate Orders for the Same User
 
 **QA Context:**  
 Users may accidentally trigger multiple order submissions due to double taps, network retries, or backend processing issues.  
@@ -298,7 +304,7 @@ GROUP BY user_id, created_at
 HAVING COUNT(*) > 1;
 ```
 
-### Scenario 12 — Detect Inconsistent Order Status and Amount
+### 3.12 Scenario - Detect Inconsistent Order Status and Amount
 
 **QA Context:**  
 Orders should follow valid business rules.  
@@ -318,7 +324,89 @@ WHERE status = 'PAID'
 
 ---
 
-## 4. Key SQL Concepts Used
+## 4. Data Anomaly Investigation Queries
+
+These queries represent QA exploratory backend validation when investigating issues.
+
+Unlike standard validation checks, these queries help detect abnormal patterns in system data that may indicate defects, integration issues, or unexpected application behavior.
+
+
+### 4.1 Scenario - Detect Duplicate Orders for the Same Product
+
+**QA Context:**  
+Users may accidentally trigger duplicate purchases due to network retries or double taps.
+
+**Validation Goal:**
+- Identify multiple orders for the same user and product
+- Detect potential duplicate transactions
+
+**SQL Query:**
+
+```sql
+SELECT user_id,
+       product_name,
+       COUNT(*) AS order_count
+FROM orders
+GROUP BY user_id, product_name
+HAVING COUNT(*) > 1;
+```
+
+**What QA Investigates:**
+
+- Multiple orders created for the same product
+- Possible UI double submission
+- Retry logic failures during network instability
+
+### 4.2 Scenario - Detect Orders With Invalid Status Values
+
+**QA Context:**  
+Backend systems may introduce unexpected status values due to integration issues or faulty deployments.
+
+**Validation Goal:**
+Identify orders containing unexpected lifecycle states.
+
+**SQL Query:**
+
+```sql
+SELECT id,
+       user_id,
+       status
+FROM orders
+WHERE status NOT IN ('CREATED','PAID','CANCELLED','COMPLETED');
+```
+
+**What QA Investigates:**
+
+- Unknown order states
+- Deployment inconsistencies
+- Backend workflow validation errors
+
+### 4.3 Scenario - Detect Suspiciously Large Transactions
+
+**QA Context:**  
+Incorrect pricing calculations or integration issues may generate unrealistic order totals.
+
+**Validation Goal:**
+Identify orders with unusually high transaction values.
+
+**SQL Query:**
+
+```sql
+SELECT id,
+       user_id,
+       amount
+FROM orders
+WHERE amount > 1000;
+```
+**What QA Investigates:**
+
+- Pricing calculation defects
+- Currency conversion issues
+- Corrupted or abnormal financial data
+
+---
+
+## 5. Key SQL Concepts Used
 
 - SELECT  
 - WHERE  
@@ -331,7 +419,7 @@ WHERE status = 'PAID'
 
 ---
 
-## 5. QA Mindset
+## 6. QA Mindset
 
 The purpose of these queries is not development analysis.
 
@@ -342,7 +430,7 @@ They are used to validate:
 - Data integrity  
 - Prevention of inconsistent states  
 
-### 5.1 Data Anomaly Mindset (What Can Go Wrong?)
+### 6.1 Data Anomaly Mindset (What Can Go Wrong?)
 
 In addition to validating expected results, QA should actively search for anomalies that may indicate backend issues, such as:
 
@@ -355,7 +443,7 @@ These checks improve defect detection and make database validation more investig
 
 ---
 
-## 6. Local Test Database Environment
+## 7. Local Test Database Environment
 
 To execute the validation scenarios described in this document, a local SQLite database was created.
 
@@ -408,7 +496,7 @@ sqlite3 qa-test-database.db
 
 ---
 
-## 7. Execution Evidence
+## 8. Execution Evidence
 
 The SQL validation scenarios defined in this document were executed against the local SQLite test database.
 
