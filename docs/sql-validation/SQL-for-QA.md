@@ -168,23 +168,31 @@ GROUP BY u.email;
 **QA Context:**  
 After placing multiple orders, verify that the total monetary amount recorded in the database matches the expected sum of transactions.
 
-**Validation Goal:**
+**Validation Goal:**  
 Ensure aggregated financial data is accurate.
 
-**SQL Query:**
+**SQL Queries:**
+
+List individual orders for the user:
 
 ```sql
-SELECT u.email,
-       SUM(o.amount) AS total_spent
-FROM users u
-JOIN orders o ON u.id = o.user_id
-WHERE u.email = 'testuser@email.com'
-GROUP BY u.email;
+SELECT id,
+       product_name,
+       amount,
+       status
+FROM orders
+WHERE user_id = (
+    SELECT id
+    FROM users
+    WHERE email = 'testuser@email.com'
+);
 ```
 
 **What QA Validates:**
 
-- total_spent equals the sum of individual order amounts created during testing
+- Individual orders exist for the user created during testing
+- Each order amount matches the expected transaction values
+- total_spent equals the sum of individual order amounts
 - No incorrect duplication inflates the total
 - Monetary precision is preserved (no rounding anomalies)
 
@@ -396,3 +404,26 @@ The database can be recreated with the following commands:
 sqlite3 qa-test-database.db
 .read schema.sql
 .read seed-data.sql
+```
+
+---
+
+## 7. Execution Evidence
+
+The SQL validation scenarios defined in this document were executed against the local SQLite test database.
+
+The execution included:
+
+- User registration verification
+- Duplicate email validation
+- Latest user retrieval
+- Order-to-user relational validation
+- Order aggregation checks
+- Financial total validation
+- Relational integrity verification
+
+Execution screenshots are available in:
+
+`evidence/week4/day4/`
+
+These results demonstrate practical backend validation performed by QA engineers after UI or API actions.
