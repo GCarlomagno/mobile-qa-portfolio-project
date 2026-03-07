@@ -32,7 +32,8 @@ For demonstration purposes, we assume a simplified application database with the
 ### orders
 - id (INT)
 - user_id (INT)
-- total_amount (DECIMAL)
+- product_name (VARCHAR)
+- amount (DECIMAL)
 - status (VARCHAR)
 - created_at (TIMESTAMP)
 
@@ -123,7 +124,7 @@ Ensure the order references the correct user_id and relational integrity is main
 SELECT u.id AS user_id,
        u.email,
        o.id AS order_id,
-       o.total_amount,
+       o.amount,
        o.status
 FROM users u
 JOIN orders o ON u.id = o.user_id
@@ -134,7 +135,7 @@ WHERE u.email = 'testuser@email.com';
 
 - Order exists for the correct user
 - user_id in orders table matches users.id
-- total_amount reflects the UI transaction
+- amount reflects the UI transaction
 - Order status is correct (e.g., 'CREATED' or 'PAID')
 
 ### Scenario 5 — Validate Total Number of Orders per User
@@ -174,7 +175,7 @@ Ensure aggregated financial data is accurate.
 
 ```sql
 SELECT u.email,
-       SUM(o.total_amount) AS total_spent
+       SUM(o.amount) AS total_spent
 FROM users u
 JOIN orders o ON u.id = o.user_id
 WHERE u.email = 'testuser@email.com'
@@ -263,10 +264,10 @@ Identify orders where the recorded amount is invalid.
 **SQL Query:**
 
 ```sql
-SELECT id, user_id, total_amount, status, created_at
+SELECT id, user_id, amount, status, created_at
 FROM orders
-WHERE total_amount IS NULL
-   OR total_amount <= 0;
+WHERE amount IS NULL
+   OR amount <= 0;
 ```  
 
 ### Scenario 11 — Detect Duplicate Orders for the Same User
@@ -301,10 +302,10 @@ Detect orders where the lifecycle status does not match the financial value reco
 **SQL Query:**
 
 ```sql
-SELECT id, user_id, total_amount, status, created_at
+SELECT id, user_id, amount, status, created_at
 FROM orders
 WHERE status = 'PAID'
-  AND (total_amount IS NULL OR total_amount <= 0);
+  AND (amount IS NULL OR amount <= 0);
 ```
 
 ---
@@ -346,60 +347,52 @@ These checks improve defect detection and make database validation more investig
 
 ---
 
-## 6. Local Database Execution Plan
+## 6. Local Test Database Environment
 
-To execute these validation scenarios in a controlled environment, a local test database will be created.
+To execute the validation scenarios described in this document, a local SQLite database was created.
 
-### Planned Tool
+### Database Location
 
-SQLite will be used because it is lightweight and easy to run locally.
+docs/sql-validation/database/
 
-Possible tools:
+### Database Files
 
-- SQLite CLI
-- DB Browser for SQLite
+The database environment is defined by the following files:
 
-### Planned Tables
+- `schema.sql` – defines the database structure (tables, constraints, relationships)
+- `seed-data.sql` – inserts controlled test data used for validation scenarios
+- `qa-test-database.db` – the generated SQLite database file
 
-The following tables will be created:
+### Database Schema
+
+The database contains the following tables.
 
 **users**
 
-- id (INT)
-- name (VARCHAR)
-- email (VARCHAR)
-- status (VARCHAR)
-- created_at (TIMESTAMP)
+- id (INTEGER PRIMARY KEY AUTOINCREMENT)
+- name (TEXT NOT NULL)
+- email (TEXT UNIQUE NOT NULL)
+- status (TEXT NOT NULL)
+- created_at (DATETIME DEFAULT CURRENT_TIMESTAMP)
 
 **orders**
 
-- id (INT)
-- user_id (INT)
-- total_amount (DECIMAL)
-- status (VARCHAR)
-- created_at (TIMESTAMP)
+- id (INTEGER PRIMARY KEY AUTOINCREMENT)
+- user_id (INTEGER NOT NULL)
+- product_name (TEXT NOT NULL)
+- amount (DECIMAL NOT NULL)
+- status (TEXT NOT NULL)
+- created_at (DATETIME DEFAULT CURRENT_TIMESTAMP)
 
-### Planned Test Data
+Orders reference users through a foreign key relationship:
 
-Test data will include both valid and intentionally incorrect records to validate anomaly detection queries.
+orders.user_id → users.id
 
-Examples:
+### Database Initialization
 
-- Valid user with normal orders
-- User with `NULL` email
-- User with `NULL` status
-- Order with `total_amount = 0`
-- Order with `total_amount < 0`
-- Duplicate orders for the same user
-- Order with `status = 'PAID'` but invalid amount
+The database can be recreated with the following commands:
 
-### Planned Execution
-
-During the next steps of this project:
-
-- The database schema will be created locally
-- Test data will be inserted
-- SQL validation queries from this document will be executed
-- Evidence (query results and screenshots) will be collected
-
-This will demonstrate practical SQL-based validation performed by a QA engineer during backend testing.
+```bash
+sqlite3 qa-test-database.db
+.read schema.sql
+.read seed-data.sql
