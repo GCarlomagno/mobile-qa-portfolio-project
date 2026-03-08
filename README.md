@@ -162,6 +162,8 @@ Full traceability mapping is available in the [Requirement_Traceability_Matrix.m
 
 ---
 
+### 🔴 R-01 — Application Launch & Relaunch
+
 **Test Cases:**  
 TC-FUNC-01  
 TC-FUNC-07  
