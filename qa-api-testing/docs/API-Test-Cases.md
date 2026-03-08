@@ -55,3 +55,15 @@ Verify that the API returns a list of users.
   - name
   - username
   - email
+
+### Additional Validations Implemented in Postman
+
+The following automated validations were implemented in Postman test scripts:
+
+- Status code validation (200 OK)
+- Response body type validation (array)
+- User object field validation (id, name, username, email)
+- Response time verification (< 500 ms)
+
+These validations ensure both structural correctness and basic performance 
+requirements of the API endpoint.
