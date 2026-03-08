@@ -1,8 +1,8 @@
 # 📱 Android Mobile QA Testing Portfolio Project
 
-**Application Version Tested:** 1.0 (Local Debug Build)  
-**Test Cycle Version:** 1.1  
-**Test Execution Period:** 2026-02-18 – 2026-03-03  
+**Application Version Tested:** 1.0 (Local Debug Build)
+**Test Cycle Version:** 1.3
+**Test Execution Period:** 2026-02-18 – 2026-03-08
 **Test Device:** Xiaomi Redmi 12C (Android 14, API 34)
 
 ---
@@ -60,7 +60,7 @@ The application was intentionally designed to allow validation of lifecycle beha
 
 ---
 
-## 🔍 Testing Approach
+## 📝 Testing Approach
 
 Testing was performed using a structured manual testing methodology including:
 
@@ -98,13 +98,13 @@ The documentation is organized according to the QA lifecycle:
 - `/docs/test-design/` – Structured test cases and checklists
 - `/docs/test-execution/` – Exploratory testing notes and summary reports
 - `/docs/defects/` – Structured bug reports
-- `/docs/evidence/` – Screenshots and video evidence
 - `/docs/environment/` – Environment setup details
-- `Requirement_Traceability_Matrix.md` – Risk-to-test mapping
+- `/docs/RequirementTraceabilityMatrix.md` – Risk-to-test mapping
+- `/evidence/` – Screenshots and video evidence
 
 ---
 
-## 📑 Documentation Standards
+## 📋 Documentation Standards
 
 All test artifacts in this repository follow the conventions defined in `Documentation_Standards.md`, including:
 
@@ -133,11 +133,11 @@ This ensures consistency, clarity, and traceability across all QA deliverables.
 
 ## 🧪 Test Execution Results
 
-- **Total Test Cases Designed:** 37  
-- **Test Cases Executed:** Core functional + mobile lifecycle scenarios ([Test Summary Report](docs/test-execution/TestSummaryReport.md))  
-- **Defects Identified:** 2 ([DEF-001](docs/defects/DEF-001.md), [DEF-002](docs/defects/DEF-002.md))  
-- **Exploratory Session Conducted:** Yes ([ExploratoryTesting.md](docs/test-execution/ExploratoryTesting.md))  
-- **Risk Coverage Maintained via RTM:** Yes ([Requirement_Traceability_Matrix.md](Requirement_Traceability_Matrix.md))
+- **Total Test Cases Designed:** 42
+- **Test Cases Executed:** 28 — ([Test Summary Report](docs/test-execution/TestSummaryReport.md))
+- **Defects Identified:** 2 — ([DEF-001](docs/defects/DEF-001-landscape-content-rendered-under-system-navigation-bar.md), [DEF-002](docs/defects/DEF-002-rapid-tap-blank-screen.md))
+- **Exploratory Session Conducted:** Yes — ([ExploratoryTesting.md](docs/test-execution/ExploratoryTesting.md))
+- **Risk Coverage Maintained via RTM:** Yes — ([RequirementTraceabilityMatrix.md](docs/RequirementTraceabilityMatrix.md))
 
 Execution included structured validation as well as exploratory stress testing to assess behavior under rapid user interaction and lifecycle edge conditions.
 
@@ -151,125 +151,110 @@ The test suite was mapped against identified project risks using a Requirement T
 |---------|-----------|----------------|---------------|
 | R-01 | Application Launch & Relaunch | Partially Executed | None |
 | R-02 | Navigation Flow Stability | Partially Executed | DEF-002 |
-| R-03 | Screen Rotation Handling | Executed | DEF-001 |
-| R-04 | Background / Foreground Lifecycle | Executed | None |
+| R-03 | Screen Rotation Handling | Partially Executed | DEF-001 |
+| R-04 | Background / Foreground Lifecycle | Partially Executed | None |
 | R-05 | Rapid / Abnormal Interaction | Partially Executed | DEF-002 |
 | R-06 | Network Interruption Handling | Executed | None |
 | R-07 | UI Feedback Consistency | Executed | None |
 | R-08 | Environmental Conditions | Designed | None |
 
-Full traceability mapping is available in the [Requirement_Traceability_Matrix.md](Requirement_Traceability_Matrix.md).
+Full traceability mapping is available in the [RequirementTraceabilityMatrix.md](docs/RequirementTraceabilityMatrix.md).
 
 ---
 
-### 🔴 R-01 — Application Launch & Relaunch
+### 🔴 R-01 – Application Launch & Relaunch
 
-**Test Cases:**  
-TC-FUNC-01  
-TC-FUNC-07  
-TC-FUNC-13  
-TC-MOB-09  
+**Test Cases:**
+TC-FUNC-01, TC-FUNC-07, TC-FUNC-13, TC-MOB-09
 
 Validates application startup, relaunch stability, and post-reboot behavior.
 
-**Status:** Partially Executed
+**Status:** Partially Executed – TC-MOB-09 not executed.
 
 ---
 
-### 🔴 R-02 — Navigation Flow Stability
+### 🔴 R-02 – Navigation Flow Stability
 
-**Test Cases:**  
-TC-FUNC-02  
-TC-FUNC-03  
-TC-FUNC-04  
-TC-FUNC-06  
-TC-NEG-01  
-TC-NEG-03  
+**Test Cases:**
+TC-FUNC-02, TC-FUNC-03, TC-FUNC-04, TC-FUNC-06, TC-NEG-01, TC-NEG-02, TC-NEG-03
 
 Validates screen transitions, back stack consistency, and prevention of duplicate or corrupted navigation states.
 
-**Status:** Partially Executed
+**Status:** Partially Executed – DEF-002 confirmed under TC-NEG-01, TC-NEG-02, TC-NEG-03.
 
 ---
 
-### 🟡 R-03 — Screen Rotation Handling
+### 🟡 R-03 – Screen Rotation Handling
 
-**Test Cases:**  
-TC-FUNC-09  
-TC-FUNC-11  
-TC-FUNC-14  
-TC-MOB-01  
-TC-NEG-06  
-TC-NEG-12  
+**Test Cases:**
+TC-FUNC-09, TC-FUNC-11, TC-FUNC-14, TC-MOB-01, TC-NEG-06, TC-NEG-12
 
 Validates layout integrity and state preservation during orientation changes.
 
-**Result:** One defect identified (DEF-001 — Landscape clipping issue)
+**Result:** Partially Executed – DEF-001 identified (landscape clipping issue). TC-NEG-06, TC-NEG-12 not executed.
 
 ---
 
-### 🟡 R-04 — Background / Foreground Lifecycle
+### 🟡 R-04 – Background / Foreground Lifecycle
 
-**Test Cases:**  
-TC-FUNC-08  
-TC-MOB-02  
-TC-MOB-03  
-TC-MOB-04  
-TC-MOB-05  
-TC-MOB-06  
-TC-NEG-07  
-TC-NEG-11  
+**Test Cases:**
+TC-FUNC-08, TC-MOB-02, TC-MOB-03, TC-MOB-04, TC-MOB-05, TC-MOB-06, TC-NEG-07, TC-NEG-11
 
 Validates lifecycle stability during minimize/restore, lock/unlock, memory pressure, and interruption scenarios.
 
-Core lifecycle stress scenarios executed. No additional instability identified.
+**Status:** Partially Executed – Core scenarios passed. TC-MOB-06, TC-NEG-07, TC-NEG-11 not executed.
 
 ---
 
-### 🟠 R-05 — Rapid / Abnormal User Interaction
+### 🟠 R-05 – Rapid / Abnormal User Interaction
 
-**Test Cases:**  
-TC-NEG-02  
-TC-NEG-04  
-TC-NEG-05  
-TC-NEG-08  
-TC-NEG-09  
-TC-NEG-10  
+**Test Cases:**
+TC-NEG-01, TC-NEG-02, TC-NEG-03, TC-NEG-04, TC-NEG-05, TC-NEG-06, TC-NEG-07, TC-NEG-08, TC-NEG-09, TC-NEG-10, TC-NEG-11, TC-NEG-12, TC-NEG-13, TC-NEG-14, TC-NEG-15, TC-NEG-16, TC-NEG-17, TC-NEG-18
 
 Validates system behavior under rapid tapping, repeated actions, and abnormal interaction patterns.
 
-**Status:** Designed and Partially Executed
+**Status:** Partially Executed – DEF-002 confirmed under TC-NEG-01, TC-NEG-02, TC-NEG-03. TC-NEG-14 through TC-NEG-18 passed. TC-NEG-04 through TC-NEG-13 not executed.
 
 ---
 
-### 🟢 R-06 — Network Interruption Handling
+### 🟢 R-06 – Network Interruption Handling
 
-**Test Cases:**  
-TC-MOB-10  
+**Test Cases:**
+TC-MOB-10
 
 Validates application stability during network connectivity loss and restoration.
 
-**Result:** Executed — No instability observed
+**Result:** Executed – No instability observed.
 
 ---
 
-### 🟢 R-07 — UI Feedback Consistency
+### 🟢 R-07 – UI Feedback Consistency
 
-**Test Cases:**  
-TC-FUNC-05  
+**Test Cases:**
+TC-FUNC-05
 
 Validates Toast message visibility and duplication handling.
 
-**Result:** Executed — No defects identified
+**Result:** Executed – No defects identified.
 
 ---
 
-### ⚪ R-08 — Environmental Conditions
+### ⚪ R-08 – Environmental Conditions
 
-**Test Cases:**  
-TC-MOB-07  
-TC-MOB-08  
+**Test Cases:**
+TC-MOB-07, TC-MOB-08
 
 Validates application behavior under low battery mode and system language changes.
 
-**Status:** Designed
+**Status:** Designed – Pending execution.
+
+---
+
+## Revision History
+
+| Version | Date | Description |
+|---------|------|-------------|
+| v1.0 | 2026-02-18 | Initial README created |
+| v1.1 | 2026-03-03 | Updated after negative stress test execution |
+| v1.2 | 2026-03-08 | Corrected execution metrics; fixed defect and RTM file links; updated TC lists per risk area; added TC-NEG-14 through TC-NEG-18 to R-05 |
+| v1.3 | 2026-03-08 | Final documentation alignment pass; updated test cycle version to 1.3 |

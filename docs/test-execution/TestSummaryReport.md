@@ -1,92 +1,84 @@
 # Test Summary Report
 
-**Execution Cycle:** Manual Mobile Testing – Core Functional & Lifecycle Validation  
-**Report Date:** 2026-02-28  
-**Test Execution Period:** 2026-02-18 – 2026-02-28   
-**Prepared By:** GCarlomagno
+---
 
-## 1. Test Scope
+## 1. Test Cycle Information
 
-Testing activities were conducted as part of a structured manual mobile testing cycle and included:
-
-- Functional validation of core application flows
-- Navigation and back stack consistency verification
-- Screen rotation handling
-- Mobile lifecycle validation (background/foreground, lock/unlock, mixed interruption)
-- Memory pressure testing
-- Network interruption handling
-- Exploratory stress testing
-
-Negative rapid-interaction stress scenarios and environmental condition tests were documented but not fully executed at the time of reporting.
+- **Application Name:** MyFirstApp
+- **Application Version:** 1.0 (Local Debug Build)
+- **Test Execution Period:** 2026-02-18 – 2026-03-08
+- **Test Device:** Xiaomi Redmi 12C (Android 14, API 34)
+- **Tester:** GCarlomagno
 
 ---
 
-## 2. Test Environment
+## 2. Test Objective
 
-| Parameter | Value |
-|------------|--------|
-| Device Model | Redmi 12C |
-| Manufacturer | Xiaomi |
-| Android Version | 14 (UP1A.231005.007) |
-| API Level | 34 |
-| Application Name | MyFirstApp |
-| Package Name | com.example.myfirstapp |
-| Application Version | 1.0 (Local debug build) |
-| Installation Method | ADB via Android Studio |
-
-Testing was performed on a physical device connected via USB debugging.
+The objective of this test cycle was to validate mobile lifecycle stability, navigation behavior, and UI interaction reliability of the Android application.
 
 ---
 
-## 3. Test Execution Summary
+## 3. Test Scope
+
+Testing included:
+
+- Functional navigation validation
+- Rapid navigation stress testing
+- Android lifecycle behavior (rotation, background, locking)
+- Negative interaction scenarios
+
+Performance, security, and automation were out of scope.
+
+---
+
+## 4. Test Execution Overview
 
 | Metric | Result |
 |--------|--------|
-| Total Test Cases Designed | 37 |
-| Total Test Cases Executed | 19 |
-| Passed | 17 |
-| Failed | 2 |
-| Not Executed | 18 |
-| Defects Identified (Execution Phase) | 1 (DEF-001) |
-
-Both failed test cases were associated with the same UI layout defect identified during landscape orientation validation (DEF-001).
-
-No crashes, freezes, or state loss were observed during structured lifecycle testing.
+| Total Test Cases Designed | 42 |
+| Total Test Cases Executed | 28 |
+| Passed | 23 |
+| Failed | 5 |
+| Not Executed | 14 |
+| Defects Identified | 2 (DEF-001, DEF-002) |
 
 ---
 
-## 4. Risk Coverage Summary
+## 5. Defect Summary
 
-Based on the Requirement Traceability Matrix:
+Two defects were identified during structured execution:
 
-- **R-01 – Application Launch & Relaunch:** Partially Executed  
-- **R-02 – Navigation Flow Stability:** Partially Executed  
-- **R-03 – Screen Rotation Handling:** Partially Executed – UI defect identified (DEF-001)  
-- **R-04 – Background / Foreground Lifecycle:** Partially Executed – Core scenarios executed with stable results  
-- **R-05 – Rapid / Abnormal User Interaction:** Designed – Structured stress execution pending  
-- **R-06 – Network Interruption Handling:** Executed – No instability observed  
-- **R-07 – UI Feedback Consistency:** Executed – No defects identified  
-- **R-08 – Environmental Conditions:** Designed – Pending execution  
+- **DEF-001** – UI layout issue under landscape orientation (R-03 – Screen Rotation Handling).
+- **DEF-002** – Blank white screen under rapid navigation stress conditions (R-05 – Rapid / Abnormal User Interaction).
 
-An additional exploratory defect (DEF-002 – Rapid Tap Blank Screen) was identified under rapid abnormal interaction scenarios (R-05). Structured negative test execution and validation remain pending.
-
-Risk coverage reflects the execution status at the time of reporting.
+DEF-002 was validated under structured negative stress testing in both portrait and landscape modes on 2026-03-03.
 
 ---
 
-## 5. Overall Quality Assessment
+## 6. Risk Assessment
 
-The Application is functionally stable under normal usage and core lifecycle stress conditions.
+- Core functional navigation remains stable under normal usage.
+- Rapid navigation stress testing revealed a reproducible instability (R-05).
+- Screen rotation handling exposed a UI layout defect (R-03).
+- Lifecycle handling (background, lock/unlock, memory pressure, network interruption) remained stable.
 
-One UI layout defect was identified during landscape orientation testing (DEF-001).  
-No critical crashes or data loss were observed during execution.
+---
 
-Rapid abnormal interaction scenarios require structured validation in a follow-up phase.
+## 7. Conclusion
 
-The Application is suitable for minor UI correction iteration before broader negative stress validation.
+The application is stable under standard user interaction scenarios.
 
-## 6. Revision History
+However, structured rapid navigation stress testing revealed a reproducible UI instability (DEF-002) that should be addressed prior to production release.
+
+Risk coverage has improved through structured negative execution, and further validation remains pending for remaining negative and environmental scenarios.
+
+---
+
+## 8. Revision History
 
 | Version | Date | Description |
-|---------|------------|---------------------------------------------|
+|---------|------------|--------------------------------------------------------------|
 | v1.0 | 2026-03-01 | Initial execution cycle report (core functional & lifecycle validation) |
+| v1.1 | 2026-03-03 | Executed structured negative stress tests (R-05); validated DEF-002 reproducibility; updated execution metrics |
+| v1.2 | 2026-03-08 | Corrected execution metrics: Executed 23 (was 22), Passed 18 (was 17), Not Executed 14 (was 15) |
+| v1.3 | 2026-03-08 | Added TC-NEG-14 through TC-NEG-18 from Day6 execution; updated metrics: Designed 42, Executed 28, Passed 23 |

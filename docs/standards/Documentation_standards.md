@@ -136,13 +136,17 @@ Documentation must remain inside:
 /docs/
 /docs/test-design/
 /docs/defects/
-/docs/evidence/
 /docs/standards/
 
+Evidence (screenshots and videos) must be stored in:
+
+/evidence/
+
 No documentation outside /docs.
+No evidence inside /docs.
 
 Reason:
-Clear separation between documentation and automation code (Week 7+).
+Clear separation between documentation, evidence, and future automation code (Week 7+).
 
 ---
 
@@ -154,3 +158,12 @@ English
 
 Reason:
 International market.
+
+---
+
+## Revision History
+
+| Version | Date | Description |
+|---------|------|-------------|
+| v1.0 | 2026-02-18 | Initial documentation standards created |
+| v1.1 | 2026-03-08 | Corrected Section 8 folder structure: evidence folder is /evidence/ at root, not /docs/evidence/; added revision history |

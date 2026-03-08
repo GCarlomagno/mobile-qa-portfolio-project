@@ -55,7 +55,7 @@ Testing was executed using the following configuration:
 
 Detailed configuration is documented in:
 
-`docs/environment/Test-Environment-Documentation.md`
+`docs/environment/Environment-Setup.md`
 
 ---
 
@@ -86,6 +86,7 @@ The following areas were validated:
 - UI interaction validation  
 - Toast message display behavior  
 - Stability under lifecycle changes  
+- Network interruption handling  
 
 ---
 
@@ -95,7 +96,7 @@ The following areas were intentionally excluded:
 
 - Performance testing  
 - Security testing  
-- Network/API validation  
+- API functional validation  
 - Automated testing  
 - Multi-device compatibility testing  
 - Accessibility testing  
@@ -141,38 +142,51 @@ Testing execution begins when:
 
 Testing is considered complete when:
 
-- All planned test cases are executed  
+- All planned test cases are executed or formally deferred with documented justification  
 - All Critical and High severity defects are reported  
 - No unresolved blocking defects remain  
 - Evidence (screenshots/videos) is stored  
 - Test Summary Report is completed  
 
+> **Note:** At the close of this cycle, 14 test cases remain Not Executed due to environment limitations or scope deferral. These are documented in the Test Summary Report.
+
 ---
 
 ## 7. Risk Areas
 
-During planning, common mobile instability areas were identified and validated during execution.
-
-### 🔴 Confirmed Risk (Observed Issue)
-
-| Risk ID   | Description                       | Impact    | Probability |
-|-----------|-----------------------------------|-----------|-------------|
-| R-01      | Rapid navigation causing UI crash | High      | High        |
-
-This issue was reproduced during stress testing and documented as a defect.
+During planning, common mobile instability areas were identified and validated during execution. Risk IDs align with the Requirement Traceability Matrix.
 
 ---
 
-### 🟡 Validated Risks (No Issue Observed)
+### 🔴 Confirmed Risks (Defects Identified)
 
-The following areas were validated but no defects were observed:
+| Risk ID | Description | Impact | Probability |
+|---------|-------------|--------|-------------|
+| R-02 | Navigation flow instability under rapid interaction | High | High |
+| R-03 | UI layout corruption under screen rotation (landscape) | High | Medium |
 
-| Risk ID   | Description                           | Impact    | Probability   |
-|-----------|---------------------------------------|-----------|---------------|
-| R-02      | State loss after screen rotation      | High      | Low           |
-| R-03      | Background / foreground instability   | Medium    | Medium        |
-| R-04      | Back stack inconsistency              | Medium    | Low           |
-| R-05      | Toast visibility inconsistency        | Low       | Medium        |
+- **DEF-002** reproduced under R-02: blank white screen after rapid navigation cycles (TC-NEG-01, TC-NEG-02, TC-NEG-03).
+- **DEF-001** reproduced under R-03: UI elements rendered under system navigation bar in landscape mode (TC-FUNC-10, TC-FUNC-14).
+
+---
+
+### 🟡 Validated Risks (No Issues Observed)
+
+| Risk ID | Description | Impact | Probability |
+|---------|-------------|--------|-------------|
+| R-01 | Application fails to launch or crashes on start/relaunch | High | High |
+| R-04 | State loss or instability during background/foreground transitions | High | Medium |
+| R-06 | Application instability during network interruption | Medium | Medium |
+| R-07 | Toast message visibility or duplication issues | Low | Low |
+
+---
+
+### ⚪ Risks Not Executed
+
+| Risk ID | Description | Impact | Probability |
+|---------|-------------|--------|-------------|
+| R-05 | Application instability under additional abnormal interaction scenarios | Medium | Medium |
+| R-08 | Unexpected behavior under environmental conditions (low battery, language change) | Medium | Low |
 
 These risks remain relevant for regression validation in future iterations.
 
@@ -196,6 +210,15 @@ This project includes:
 
 This project demonstrates structured manual mobile testing focused on lifecycle stability, navigation consistency, and UI validation.
 
-Risk-based validation identified one high-impact instability under rapid navigation stress conditions, while all other lifecycle scenarios remained stable.
+Risk-based validation identified two defects: a high-impact UI instability under rapid navigation stress conditions (DEF-002) and a UI layout defect under landscape orientation (DEF-001). All other lifecycle and network scenarios remained stable.
 
 The documentation reflects a structured junior-level QA execution aligned with real-world testing practices.
+
+---
+
+## 10. Revision History
+
+| Version | Date | Description |
+|---------|------|-------------|
+| v1.0 | 2026-02-18 | Initial test plan created |
+| v1.1 | 2026-03-08 | Aligned Risk IDs with RTM (R-01 to R-08); added DEF-001 to confirmed risks; corrected environment file reference; updated Out of Scope; added exit criteria note on not-executed cases |

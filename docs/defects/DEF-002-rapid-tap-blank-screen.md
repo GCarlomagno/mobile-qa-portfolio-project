@@ -1,17 +1,17 @@
 # DEF-002 – Blank White Screen After Rapid Navigation Cycles
 
 **Status:** Open – Reproducible under structured rapid navigation stress conditions (Validated 2026-03-03)
-**Severity:** Major  
-**Reported Date:** 2026-02-18  
-**Related Risk:** R-05 – Rapid / Abnormal User Interaction  
-**Linked Test Cases:** 
+**Severity:** High
+**Reported Date:** 2026-02-18
+**Related Risk:** R-05 – Rapid / Abnormal User Interaction
+**Linked Test Cases:**
 - TC-NEG-01 – Failed (2026-03-03)
 - TC-NEG-02 – Failed (2026-03-03)
 - TC-NEG-03 – Failed (2026-03-03)
 
 ---
 
-## Summary 
+## Summary
 
 The application displays a completely blank white screen after rapid repeated navigation between the main screen and the second screen.
 
@@ -72,8 +72,8 @@ The application displays a completely blank white screen after rapid repeated na
 
 ## Reproducibility
 
-Reproduced under structured rapid navigation stress execution on 2026-03-03. 
-Blank screen consistently occurred after approximately 5 rapid navigation cycles 
+Reproduced under structured rapid navigation stress execution on 2026-03-03.
+Blank screen consistently occurred after approximately 5 rapid navigation cycles
 in both portrait and landscape orientations.
 
 ---
@@ -89,3 +89,21 @@ in both portrait and landscape orientations.
 ## Technical Observation
 
 Rotation restores UI, suggesting the issue may be related to navigation state handling or UI composition refresh rather than a process crash.
+
+---
+
+## Evidence
+
+- `evidence/week3/day4/2026-03-03/TC-NEG-01/TC-NEG-01-rapid-navigation-cycle-fail.mp4`
+- `evidence/week3/day4/2026-03-03/TC-NEG-02/TC-NEG-02-rapid-navigation-cycle-landscape-fail.mp4`
+- `evidence/week3/day4/2026-03-03/TC-NEG-03/TC-NEG-03-double-tap-fail.mp4`
+
+---
+
+## Revision History
+
+| Version | Date | Description |
+|---------|------|-------------|
+| v1.0 | 2026-02-18 | Initial defect report created after exploratory session |
+| v1.1 | 2026-03-03 | Updated status after structured negative test execution confirmed reproducibility |
+| v1.2 | 2026-03-08 | Severity changed from Major to High to align with Documentation_standards.md; added evidence section |

@@ -1,9 +1,9 @@
 # DEF-001 – Landscape content rendered under system navigation bar
 
-**Status:** Open  
-**Severity:** Medium  
+**Status:** Open
+**Severity:** Medium
 **Reported Date:** 2026-02-27
-**Related Risk:** R-03 – Screen Rotation Handling  
+**Related Risk:** R-03 – Screen Rotation Handling
 **Linked Test Cases:** TC-FUNC-10, TC-FUNC-14
 
 ---
@@ -68,5 +68,14 @@ Part of the button and screen text is rendered under the system navigation bar, 
 
 ## Evidence
 
-- `/docs/evidence/week3/day1/TC-FUNC-10-fail.png`
-- `/docs/evidence/week3/day1/TC-FUNC-14-fail.png`
+- `evidence/week3/day1/TC-FUNC-10-fail.png`
+- `evidence/week3/day1/TC-FUNC-14-fail.png`
+
+---
+
+## Revision History
+
+| Version | Date | Description |
+|---------|------|-------------|
+| v1.0 | 2026-02-27 | Initial defect report created |
+| v1.1 | 2026-03-08 | Added revision history |
