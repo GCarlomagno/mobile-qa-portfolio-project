@@ -16,7 +16,7 @@ This document provides an overview of all identified defects during the manual m
 ## Notes
 
 - DEF-001 was identified during structured functional execution (TC-FUNC-10, TC-FUNC-14).
-- DEF-002 was first identified during exploratory stress testing (Session 1, 2026-02-18) and subsequently confirmed through structured negative test execution (TC-NEG-01, TC-NEG-02, TC-NEG-03) on 2026-03-03.
+- DEF-002 was first identified during exploratory stress testing (Session 1, 2026-02-18), confirmed through structured negative test execution (TC-NEG-01, TC-NEG-02, TC-NEG-03) on 2026-03-03, and further confirmed under TC-NEG-04 on 2026-03-09.
 - Both defects remain open. No fixes have been applied to the current build.
 
 ---
@@ -27,3 +27,4 @@ This document provides an overview of all identified defects during the manual m
 |---------|------|-------------|
 | v1.0 | 2026-02-27 | Initial defect index created |
 | v1.1 | 2026-03-08 | Added Status column; updated notes to reflect DEF-002 structured confirmation on 2026-03-03; removed outdated pending validation note |
+| v1.2 | 2026-03-09 | Updated DEF-002 notes to reflect additional confirmation under TC-NEG-04 |

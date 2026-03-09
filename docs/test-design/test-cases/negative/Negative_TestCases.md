@@ -93,10 +93,10 @@ This document contains structured negative and stress test cases designed to ide
 - No blank screen appears.
 - No crash or UI corruption occurs.
 
-**Execution Result:** Not Executed
-**Execution Date:**
-**Notes:**
-**Evidence:**
+**Execution Result:** Fail
+**Execution Date:** 2026-03-09
+**Notes:** Blank white screen reproduced after approximately 10 seconds of rapid alternating button interaction. Behavior consistent with DEF-002. Application process remained active. No crash dialog observed.
+**Evidence:** evidence/week3/day4/2026-03-09/TC-NEG-04/TC-NEG-04-rapid-alternating-fail.mp4
 
 ---
 
@@ -114,9 +114,9 @@ This document contains structured negative and stress test cases designed to ide
 - No crash occurs.
 - No unexpected behavior or UI corruption occurs.
 
-**Execution Result:** Not Executed
-**Execution Date:**
-**Notes:**
+**Execution Result:** Pass
+**Execution Date:** 2026-03-09
+**Notes:** Pressing the device Back button repeatedly 5 times on the main screen did not cause any crash or unexpected behavior. Application exited gracefully on the first back press. No UI corruption observed.
 **Evidence:**
 
 ---
@@ -139,9 +139,9 @@ This document contains structured negative and stress test cases designed to ide
 - No UI corruption occurs.
 - No crash occurs.
 
-**Execution Result:** Not Executed
-**Execution Date:**
-**Notes:**
+**Execution Result:** Pass
+**Execution Date:** 2026-03-09
+**Notes:** Application remained stable during rapid device rotation combined with active navigation transitions. Navigation state was preserved correctly after each cycle. No blank screen, UI corruption, or crash observed. Sequence repeated 5 times with consistent results.
 **Evidence:**
 
 ---
@@ -165,9 +165,9 @@ This document contains structured negative and stress test cases designed to ide
 - No blank screen appears.
 - No crash occurs.
 
-**Execution Result:** Not Executed
-**Execution Date:**
-**Notes:**
+**Execution Result:** Pass
+**Execution Date:** 2026-03-09
+**Notes:** Navigation state was preserved correctly after each lock/unlock interruption cycle. Application remained responsive throughout. No blank screen, delay, or crash observed. Sequence repeated 5 times with consistent results.
 **Evidence:**
 
 ---
@@ -186,9 +186,9 @@ This document contains structured negative and stress test cases designed to ide
 - No duplicate screens are created.
 - Application remains stable.
 
-**Execution Result:** Not Executed
-**Execution Date:**
-**Notes:**
+**Execution Result:** Pass
+**Execution Date:** 2026-03-09
+**Notes:** Only one navigation event triggered per tap regardless of interaction speed. No duplicate screens created. Application remained stable throughout. No crash or unexpected behavior observed.
 **Evidence:**
 
 ---
@@ -207,9 +207,9 @@ This document contains structured negative and stress test cases designed to ide
 - Application remains stable.
 - No crash occurs.
 
-**Execution Result:** Not Executed
-**Execution Date:**
-**Notes:**
+**Execution Result:** Pass
+**Execution Date:** 2026-03-09
+**Notes:** No unexpected actions triggered by tapping on non-interactive areas 20 times. Application remained stable throughout. No crash, navigation event, or UI corruption observed.
 **Evidence:**
 
 ---
@@ -230,9 +230,9 @@ This document contains structured negative and stress test cases designed to ide
 - No crash occurs.
 - No blank screen appears.
 
-**Execution Result:** Not Executed
-**Execution Date:**
-**Notes:**
+**Execution Result:** Pass
+**Execution Date:** 2026-03-09
+**Notes:** Navigation state remained consistent during combined rapid rotation and back button presses. Application returned to the main screen correctly. No blank screen, crash, or UI corruption observed.
 **Evidence:**
 
 ---
@@ -254,9 +254,9 @@ This document contains structured negative and stress test cases designed to ide
 - No blank screen appears.
 - Navigation state remains consistent.
 
-**Execution Result:** Not Executed
-**Execution Date:**
-**Notes:**
+**Execution Result:** Pass
+**Execution Date:** 2026-03-09
+**Notes:** Application did not freeze or show blank screen when minimized during navigation transitions. Navigation state remained consistent after each reopen. No crash, reload, or UI corruption observed. Sequence repeated 5 times with consistent results.
 **Evidence:**
 
 ---
@@ -276,9 +276,9 @@ This document contains structured negative and stress test cases designed to ide
 - No duplicate screens appear.
 - No crash occurs.
 
-**Execution Result:** Not Executed
-**Execution Date:**
-**Notes:**
+**Execution Result:** Pass
+**Execution Date:** 2026-03-09
+**Notes:** Only one navigation event triggered when tapping during device rotation. No duplicate screens created. Application remained stable and no crash occurred.
 **Evidence:**
 
 ---
@@ -424,3 +424,13 @@ This document contains structured negative and stress test cases designed to ide
 **Execution Date:** 2026-02-18
 **Notes:** Application remained stable when navigation cycles were combined with rapid device locking and unlocking. No blank screen, delay, or freeze observed. Executed 5 times with consistent results.
 **Evidence:**
+
+---
+
+## Revision History
+
+| Version | Date | Description |
+|---------|------|-------------|
+| v1.0 | 2026-03-03 | Initial negative test cases created; TC-NEG-01 through TC-NEG-03 executed |
+| v1.1 | 2026-03-08 | Added TC-NEG-14 through TC-NEG-18 from Day6 execution |
+| v1.2 | 2026-03-09 | Executed TC-NEG-04 through TC-NEG-12; TC-NEG-04 failed (DEF-002 reproduced); TC-NEG-05 through TC-NEG-12 passed |
